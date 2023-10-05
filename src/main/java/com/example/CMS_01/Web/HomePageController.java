@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomePageController {
 
-//    A basic homepage so we can start from somewhere.
+//    A basic homepage so we can start from somewhere.------
     @GetMapping("/")
     public String getHomePage(){
         return "index.html";
