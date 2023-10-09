@@ -1,0 +1,27 @@
+/* CSS styles for the .container-group */
+.container-group {
+    display: flex;
+    justify-content: flex-start; /* Align containers to the left */
+}
+
+/* CSS styles for the .container class */
+.container {
+    background-color: gold;
+    height: 200px;
+    width: 200px;
+    margin-right: 10px; /* Add margin for spacing between containers */
+    padding: 10px; /* Optional padding to add space within containers */
+    text-align: center; /* Center text horizontally within containers */
+}
+
+/* CSS styles for the links within the containers */
+.container a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Optional: Add hover effect to links */
+.container a:hover {
+    color: blue;
+}
