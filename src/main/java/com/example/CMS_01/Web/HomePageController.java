@@ -12,4 +12,7 @@ public class HomePageController {
         return "index.html";
     }
 
+    @GetMapping("/subject1")
+    public String getSubject1(){return "Classes/Subject1/Subject.html";}
+
 }
