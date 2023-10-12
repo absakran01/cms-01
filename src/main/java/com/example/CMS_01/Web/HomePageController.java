@@ -15,4 +15,8 @@ public class HomePageController {
     @GetMapping("/subject1")
     public String getSubject1(){return "Classes/Subject1/Subject.html";}
 
+
+//    @GetMapping("/Classes/Subject1/Content/Articles.html")
+//    public String getSubject1Article(){return "Classes/SWE/Content/Articles.html";}
+
 }
