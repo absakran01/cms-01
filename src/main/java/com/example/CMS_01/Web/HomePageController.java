@@ -12,22 +12,20 @@ public class HomePageController {
         return "/index.html";
     }
 
+//    main courses
     @GetMapping("/SWE")
     public String getSWE(){return "Classes/SWE/Subject.html";}
-
-    @GetMapping("/C++")
+    @GetMapping("/cpp")
     public String getCpp(){return "Classes/C++/Subject.html";}
-
     @GetMapping("/Algorithms")
     public String getAlgorithms(){return "Classes/Algorithms/Subject.html";}
 
 
+//    articles
     @GetMapping("/SWE/Articles")
     public String getSWEArticle(){return "/Classes/SWE/Content/Articles.html";}
-
-    @GetMapping("/C++/Articles")
+    @GetMapping("/Cpp/Articles")
     public String getCppArticle(){return "/Classes/C++/Content/Articles.html";}
-
     @GetMapping("/Algorithms/Articles")
     public String getAlgorithmsArticle(){return "/Classes/Algorithms/Content/Articles.html";}
 
