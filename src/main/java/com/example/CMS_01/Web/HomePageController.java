@@ -9,14 +9,27 @@ public class HomePageController {
 //    A basic homepage so we can start from somewhere----------
     @GetMapping("/")
     public String getHomePage(){
-        return "index.html";
+        return "/index.html";
     }
 
-    @GetMapping("/subject1")
-    public String getSubject1(){return "Classes/Subject1/Subject.html";}
+    @GetMapping("/SWE")
+    public String getSWE(){return "Classes/SWE/Subject.html";}
+
+    @GetMapping("/C++")
+    public String getCpp(){return "Classes/C++/Subject.html";}
+
+    @GetMapping("/Algorithms")
+    public String getAlgorithms(){return "Classes/Algorithms/Subject.html";}
 
 
-    @GetMapping("/Classess/Subject1/Content/Articles.html")
-    public String getSubject1Article(){return "Classes/SWE/Content/Articles.html";}
+    @GetMapping("/SWE/Articles")
+    public String getSWEArticle(){return "/Classes/SWE/Content/Articles.html";}
+
+    @GetMapping("/C++/Articles")
+    public String getCppArticle(){return "/Classes/C++/Content/Articles.html";}
+
+    @GetMapping("/Algorithms/Articles")
+    public String getAlgorithmsArticle(){return "/Classes/Algorithms/Content/Articles.html";}
+
 
 }
