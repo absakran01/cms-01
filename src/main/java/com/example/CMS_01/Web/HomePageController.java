@@ -14,11 +14,11 @@ public class HomePageController {
 
 //    main courses
     @GetMapping("/SWE")
-    public String getSWE(){return "Classes/SWE/Subject.html";}
+    public String getSWE(){return "Classes/SWE/Subject1.html";}
     @GetMapping("/cpp")
-    public String getCpp(){return "Classes/C++/Subject.html";}
+    public String getCpp(){return "Classes/C++/Subject2.html";}
     @GetMapping("/Algorithms")
-    public String getAlgorithms(){return "Classes/Algorithms/Subject.html";}
+    public String getAlgorithms(){return "Classes/Algorithms/Subject3.html";}
 
 
 //    articles
