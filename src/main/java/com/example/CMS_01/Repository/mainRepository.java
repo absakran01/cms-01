@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Getter
 @Setter
 public class mainRepository {
-    
+
 }
