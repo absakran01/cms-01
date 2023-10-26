@@ -1,8 +1,11 @@
 package com.example.CMS_01.Entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.naming.Name;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,11 +13,13 @@ import java.io.Serializable;
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "sequenceGenerator", sequenceName = "sequence_name_user", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", length = 50)
     private Long id;
 
     @Column(name = "username", length = 50)
