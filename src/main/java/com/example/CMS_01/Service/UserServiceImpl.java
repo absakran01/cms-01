@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
     UserRepository repository;
     @Override
     public User getUser(Long id) {
