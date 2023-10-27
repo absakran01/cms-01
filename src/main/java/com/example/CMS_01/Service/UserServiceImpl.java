@@ -13,6 +13,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     UserRepository repository;
+
+    @Override
+    public User findUserById(Long id) {
+        return repository.findById(id).isPresent() ? null : repository.findById(id).get();
+    }
+
     @Override
     public User getUser(Long id) {
         return repository.findById(id).get();
