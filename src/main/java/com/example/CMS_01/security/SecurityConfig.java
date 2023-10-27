@@ -1,6 +1,7 @@
 package com.example.CMS_01.security;
 
 import com.example.CMS_01.Service.UserService;
+import com.example.CMS_01.Service.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @AllArgsConstructor
 public class SecurityConfig {
 
+    private UserServiceImpl service;
+
     private BCryptPasswordEncoder passwordEncoder;
 
     @Bean
@@ -30,13 +33,12 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.DELETE, "/register").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/register").hasRole("ADMIN")
                 .antMatchers().hasAnyRole("ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .and().formLogin().defaultSuccessUrl("/",true);
 
         return http.build();
     }
