@@ -1,10 +1,21 @@
 package com.example.CMS_01.Web;
 
+import com.example.CMS_01.Entity.User;
+import com.example.CMS_01.Service.UserServiceImpl;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@AllArgsConstructor
 @Controller
 public class HomePageController {
+    UserServiceImpl service;
 
 //    A basic homepage so we can start from somewhere----------
     @GetMapping("/")
@@ -29,6 +40,11 @@ public class HomePageController {
     @GetMapping("/Algorithms/Articles")
     public String getAlgorithmsArticle(){return "/Classes/Algorithms/Content/Articles.html";}
 
+//    login
+    @RequestMapping("/register")
+    public ResponseEntity<User> saveUser(@Validated @RequestBody User user) {
+        return new ResponseEntity<>(service.saveUser(user), HttpStatus.CREATED);
+}
 
 //  Videos
     @GetMapping("/SWE/Video1")
