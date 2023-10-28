@@ -1,10 +1,10 @@
 package com.example.CMS_01.Service;
 
+import com.example.CMS_01.Entity.Role;
 import com.example.CMS_01.Entity.User;
+import com.example.CMS_01.Repository.RoleRepository;
 import com.example.CMS_01.Repository.UserRepository;
-import com.example.CMS_01.security.MyUserPrincipal;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,11 +19,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-    private UserRepository repository;
+    private RoleServiceImpl roleService;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repository.findByUsername(username).get();
+        User user = userRepository.findByUsername(username).get();
         if(user==null){
             new UsernameNotFoundException("User not exists by Username");
         }
@@ -34,28 +35,35 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(Long id) {
-        return repository.findById(id).isPresent() ? null : repository.findById(id).get();
+    public User findUserById(Integer id) {
+        return userRepository.findById(id).isPresent() ? null : userRepository.findById(id).get();
     }
 
     @Override
-    public User getUser(Long id) {
-        return repository.findById(id).get();
+    public User getUser(Integer id) {
+        return userRepository.findById(id).get();
     }
 
     @Override
     public User saveUser(User user) {
-        return repository.save(user);
+        return userRepository.save(user);
     }
 
     @Override
-    public void deleteStudent(Long id) {
-        repository.deleteById(id);
+    public User saveUserAndRole(User user, Role role) {
+        user.setRoles((Set<Role>) role);
+        roleService.saveRole(role);
+        return userRepository.save(user);
+    }
+
+    @Override
+    public void deleteStudent(Integer id) {
+        userRepository.deleteById(id);
     }
 
     @Override
     public List<User> getUsers() {
-        return (List<User>) repository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
     @Override
