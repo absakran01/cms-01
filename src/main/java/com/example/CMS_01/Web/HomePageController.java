@@ -30,15 +30,7 @@ public class HomePageController {
     public String getCpp(){return "Classes/C++/Subject2.html";}
     @GetMapping("/Algorithms")
     public String getAlgorithms(){return "Classes/Algorithms/Subject3.html";}
-
-
-//  articles
-    @GetMapping("/SWE/Articles")
-    public String getSWEArticle(){return "/Classes/SWE/Content/Articles.html";}
-    @GetMapping("/Cpp/Articles")
-    public String getCppArticle(){return "/Classes/C++/Content/Articles.html";}
-    @GetMapping("/Algorithms/Articles")
-    public String getAlgorithmsArticle(){return "/Classes/Algorithms/Content/Articles.html";}
+    
 
 //    login
     @RequestMapping("/register")
@@ -47,7 +39,7 @@ public class HomePageController {
 }
 
 //  Videos
-    @GetMapping("/SWE/Video1")
+  @GetMapping("/SWE/Video1")
     public String getSWEVideo1(){return "/Classes/SWE/Content/Videos/Video1.html";}
 
     @GetMapping("/Cpp/Video1")
