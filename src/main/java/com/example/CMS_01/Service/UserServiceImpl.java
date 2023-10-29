@@ -1,78 +1,46 @@
 package com.example.CMS_01.Service;
 
-import com.example.CMS_01.Entity.Role;
+import java.util.Optional;
+
 import com.example.CMS_01.Entity.User;
-import com.example.CMS_01.Repository.RoleRepository;
 import com.example.CMS_01.Repository.UserRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Annotation;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+import javax.persistence.EntityNotFoundException;
+
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
-    private RoleServiceImpl roleService;
+
     private UserRepository userRepository;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username).get();
-        if(user==null){
-            new UsernameNotFoundException("User not exists by Username");
-        }
-        Set<GrantedAuthority> authorities = user.getRoles().stream()
-                .map((role) -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toSet());
-        return new org.springframework.security.core.userdetails.User(username,user.getPassword(),authorities);
+    public User getUser(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        return unwrapUser(user, id);
     }
 
     @Override
-    public User findUserById(Integer id) {
-        return userRepository.findById(id).isPresent() ? null : userRepository.findById(id).get();
-    }
-
-    @Override
-    public User getUser(Integer id) {
-        return userRepository.findById(id).get();
+    public User getUser(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        return unwrapUser(user, 404L);
     }
 
     @Override
     public User saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
-    @Override
-    public User saveUserAndRole(User user, Role role) {
-        user.setRoles((Set<Role>) role);
-        roleService.saveRole(role);
-        return userRepository.save(user);
+    static User unwrapUser(Optional<User> entity, Long id) {
+        if (entity.isPresent()) return entity.get();
+        else throw new EntityNotFoundException();
     }
 
-    @Override
-    public void deleteStudent(Integer id) {
-        userRepository.deleteById(id);
-    }
 
-    @Override
-    public List<User> getUsers() {
-        return (List<User>) userRepository.findAll();
-    }
-
-    @Override
-    public String value() {
-        return null;
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
-    }
+    
 }

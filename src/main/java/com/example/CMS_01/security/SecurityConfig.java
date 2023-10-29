@@ -1,63 +1,49 @@
 package com.example.CMS_01.security;
 
-import com.example.CMS_01.Service.UserService;
-import com.example.CMS_01.Service.UserServiceImpl;
-import lombok.AllArgsConstructor;
+import com.example.CMS_01.Service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
 
+import javax.sql.DataSource;
 
 
 @Configuration
-@AllArgsConstructor
-public class SecurityConfig {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserServiceImpl service;
-
-    private BCryptPasswordEncoder passwordEncoder;
-
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/register").hasRole("ADMIN")
-                .antMatchers().hasAnyRole("ADMIN", "USER")
+                .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic()
-                .and().formLogin().defaultSuccessUrl("/",true);
-
-        return http.build();
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
+                .formLogin();
     }
 
     @Bean
-    public UserDetailsService users() {
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder.encode("adminpass"))
-                .roles("ADMIN")
-                .build();
-
-        UserDetails user = User.builder()
-                .username("user")
-                .password(passwordEncoder.encode("userpass"))
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(admin, user);
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    private DataSource dataSource;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM users WHERE username=?") // Using '1' as enabled (assuming all users are enabled)
+                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username=?")
+                .passwordEncoder(passwordEncoder());
+    }
 }
