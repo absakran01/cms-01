@@ -2,10 +2,13 @@
 <html lang="en"><head> <link rel="stylesheet" type="text/css" href="styles.css">
                         <!-- this links the css code to this html file ^^^^ -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICMS ~ FrontPage</title> 
-    <!-- was called "CMS Front-end place holder" , temporarily changed -->
+    <div>
+    <!-- Add the image tag with the "logo-img" class for the logo -->
+    <img src="/home/Imam_Muhammad_Ibn_Saud_Islamic_University.svg.png" alt="Imam" class="logo-img" style="width: 80px; height: 80px;">
+    </div>
+    <title>TICMS ~ FrontPage</title>
 
     <style>
         body {
@@ -57,6 +60,13 @@
             line-height: 1.6;
         }
 
+        .logo-img {
+        position: absolute;
+        top: 10px;
+        left: 4%;
+        width: 100px; /* You can adjust the width as needed */
+        }
+
         /* Styles for subjects */
         .subject {
             border: 1px solid #ccc;
@@ -94,103 +104,49 @@
             max-width: 80px;
             max-height: 80px;
         }
+
+        footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
     </style>
 </head>
 <body style="color: black;">
 <header style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
     <h1><big><b>The Imamu Content Management System</b></big></h1>
-    <!-- header was bolded,given a font and made bigger-->
 </header>
 
-<nav style="background-color: grey;"> 
-    <ul>      
+<nav style="background-color: grey;">
+    <ul>
    </ul>
 </nav>
 
                     <!--theses are the frongpage subjects-->
 <div class="container" id="subject1" style="width: 1050px; border-radius: 30px;">
-    <a href="/Classes/Subject1/Subject.html"><h1 style="margin-top: 55px; font-size: 50px;"><b>Subject 1</b></h1></a>
+    <a href="/SWE"><h1 style="margin-top: 55px; font-size: 50px;"><b>Software Engineering</b></h1></a>
     </div>
 </div>
 
 <div class="container" id="subject2" style="width: 1050px;border-radius: 30px;">
-    <a href="/Classes/Subject2/Subject.html"><h1 style="margin-top: 55px; font-size: 50px;"><b>Subject 2</b></h1></a>
+    <a href="/Cpp"><h1 style="margin-top: 55px; font-size: 50px;"><b>C++</b></h1></a>
     </div>
 </div>
 
 <div class="container" id="subject3" style="width: 1050px;border-radius: 30px;">
-    <a href="/Classes/Subject3/Subject.html"><h1 style="margin-top: 55px; font-size: 50px;"><b>Subject 3</b></h1></a>
+    <a href="/Algorithms"><h1 style="margin-top: 55px; font-size: 50px;"><b>Algorithms</b></h1></a>
     </div>
 </div>
-
-
-<!-- <div class="container" id="subject1">
-    <h1>Computer Science Subject 1</h1>
-    <div class="subject">
-        <h2>Quizzes</h2>
-        <div class="option">Quiz 1</div>
-        <div class="option">Quiz 2</div>
-    </div>
-    <!-- Add more options for assignments, discussion boards, etc., here -->
-    <!-- <div class="badges">
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge1.png" alt="Badge 1">
-            <p>Badge 1</p>
-        </div>
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge2.png" alt="Badge 2">
-            <p>Badge 2</p>
-        </div>
-    </div>
-</div> -->
-                 <!-- class 1 quizes and badges ^^^^ -->
-
-<!-- <div class="container" id="subject2">
-    <h1>Computer Science Subject 2</h1>
-    <div class="subject">
-        <h2>Quizzes</h2>
-        <div class="option">Quiz 1</div>
-        <div class="option">Quiz 2</div>
-    </div>
-    <!-- Add more options for assignments, discussion boards, etc., here -->
-    <!-- <div class="badges">
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge1.png" alt="Badge 1">
-            <p>Badge 1</p>
-        </div>
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge2.png" alt="Badge 2">
-            <p>Badge 2</p>
-        </div>
-    </div>
-</div> --> 
-
-<!-- <div class="container" id="subject3">
-    <h1>Computer Science Subject 3</h1>
-    <div class="subject">
-        <h2>Quizzes</h2>
-        <div class="option">Quiz 1</div>
-        <div class="option">Quiz 2</div>
-    </div> -->
-    <!-- Add more options for assignments, discussion boards, etc., here -->
-    <!-- <div class="badges">
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge1.png" alt="Badge 1">
-            <p>Badge 1</p>
-        </div>
-        <div class="badge">
-            <img src="./CMS Front-end place holder_files/badge2.png" alt="Badge 2">
-            <p>Badge 2</p>
-        </div>
-    </div>
-</div> -->
-
-<!-- Repeat the structure for Subject 2 and Subject 3 -->
-
-
+<footer>
+    &copy;2023 IMAMU
+</footer>
 <script>
 (function() {
-  var ws = new WebSocket('ws://' + window.location.host + 
+  var ws = new WebSocket('ws://' + window.location.host +
              '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
              'referrer=' + encodeURIComponent(window.location.pathname));
   ws.onmessage = function (msg) {
@@ -211,8 +167,8 @@
               else {
                 var indexOfQuest = newHref.indexOf('?');
                 if (indexOfQuest >= 0) {
-                  // to support ?foo#hash 
-                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                  // to support ?foo#hash
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
                                     newHref.substring(indexOfQuest + 1);
                 }
                 else {
