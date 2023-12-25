@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en"><head> <link rel="stylesheet" type="text/css" href="styles.css">
-                        <!-- this links the css code to this html file ^^^^ -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div>
-    <!-- Add the image tag with the "logo-img" class for the logo -->
-    <img src="/home/Imam_Muhammad_Ibn_Saud_Islamic_University.svg.png" alt="Imam" class="logo-img" style="width: 80px; height: 80px;">
-    </div>
     <title>TICMS ~ FrontPage</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
+            position: relative;
         }
 
         nav {
@@ -49,134 +48,122 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         h1 {
             font-size: 24px;
+            margin-inside: 2px;
             margin-bottom: 20px;
         }
 
-        p {
-            line-height: 1.6;
-        }
-
         .logo-img {
-        position: absolute;
-        top: 10px;
-        left: 4%;
-        width: 100px; /* You can adjust the width as needed */
+            position: absolute;
+            top: 10px;
+            left: 4%;
+            width: 100px;
         }
 
-        /* Styles for subjects */
-        .subject {
-            border: 1px solid #ccc;
+        .dropmenuDiv {
+            display: inline-block;
+            position: relative;
+            float: left;
+            margin-top: -35px; /* Adjusted the margin-top value */
+        }
+
+        .dropmenuBtn {
+            background-color: #434344;
+            color: white;
             padding: 20px;
-            margin: 20px 0;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        /* Styles for options within each subject */
-        .option {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            margin-top: 5px; /* Adjusted the margin-top value */
         }
 
-        /* Add more specific styles for quizzes, assignments, etc., here */
-
-        /* Styles for badges and trophies */
-        .badges {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 20px 0;
+        .dropdown a {
+            color: #333;
+            padding: 12px 16px;
+            margin-top: -5px; /* Adjusted the margin-top value */
+            text-decoration: none;
+            display: block;
         }
 
-        .badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .dropdown a:hover {
+            background-color: #ddd;
         }
 
-        .badge img {
-            max-width: 80px;
-            max-height: 80px;
+        .dropmenuDiv:hover .dropdown {
+            display: block;
+        }
+
+        .dark-mode body {
+            background-color: #333;
+            color: #fff;
         }
 
         footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
-<body style="color: black;">
-<header style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+
+<body>
+<header>
     <h1><big><b>The Imamu Content Management System</b></big></h1>
+    <div class="dropmenuDiv">
+        <button class="dropmenuBtn">
+            <i class="fas fa-cog"></i> Settings
+        </button>
+
+        <!-- Dropdown content -->
+        <div class="dropdown">
+            <a href="/Settings">Account Settings</a>
+            <a href="/logout">Sign Out</a>
+        </div>
+    </div>
 </header>
 
-<nav style="background-color: grey;">
+<nav>
     <ul>
-   </ul>
+        <!-- Add your navigation items if needed -->
+    </ul>
 </nav>
 
-                    <!--theses are the frongpage subjects-->
-<div class="container" id="subject1" style="width: 1050px; border-radius: 30px;">
-    <a href="/SWE"><h1 style="margin-top: 55px; font-size: 50px;"><b>Software Engineering</b></h1></a>
-    </div>
+<div class="container" id="subject1">
+    <a href="/SWE"><h1>Software Engineering</h1></a>
 </div>
 
 <div class="container" id="subject2" style="width: 1050px;border-radius: 30px;">
-    <a href="/Cpp"><h1 style="margin-top: 55px; font-size: 50px;"><b>C++</b></h1></a>
-    </div>
+    <a href="/Cpp"><h1><b>C++</b></h1></a>
 </div>
 
 <div class="container" id="subject3" style="width: 1050px;border-radius: 30px;">
-    <a href="/Algorithms"><h1 style="margin-top: 55px; font-size: 50px;"><b>Algorithms</b></h1></a>
-    </div>
+    <a href="/Algorithms"><h1><b>Algorithms</b></h1></a>
 </div>
+
+<!-- Add more containers for other subjects if needed -->
+
 <footer>
     &copy;2023 IMAMU
 </footer>
-<script>
-(function() {
-  var ws = new WebSocket('ws://' + window.location.host +
-             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-             'referrer=' + encodeURIComponent(window.location.pathname));
-  ws.onmessage = function (msg) {
-      if (msg.data === 'reload') {
-          window.location.reload();
-      }
-      if (msg.data.startsWith('update-css ')) {
-          var messageId = msg.data.substring(11);
-          var links = document.getElementsByTagName('link');
-          for (var i = 0; i < links.length; i++) {
-              var link = links[i];
-              if (link.rel !== 'stylesheet') continue;
-              var clonedLink = link.cloneNode(true);
-              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-              if (newHref !== link.href) {
-                clonedLink.href = newHref;
-              }
-              else {
-                var indexOfQuest = newHref.indexOf('?');
-                if (indexOfQuest >= 0) {
-                  // to support ?foo#hash
-                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
-                                    newHref.substring(indexOfQuest + 1);
-                }
-                else {
-                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-                }
-              }
-              link.replaceWith(clonedLink);
-          }
-      }
-  };
-})();
+</body>
+
+</html>
