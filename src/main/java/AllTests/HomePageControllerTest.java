@@ -13,11 +13,11 @@ public class HomePageControllerTest {
 
     private HomePageController homePageController;
 
-    @Before
-    public void setUp() {
-        // Initialize the homePageController before each test
-        homePageController = new HomePageController(new UserServiceImpl(null,null));
-    }
+//    @Before
+//    public void setUp() {
+//        // Initialize the homePageController before each test
+//        homePageController = new HomePageController(new UserServiceImpl(null,null));
+//    }
 
 
     @Test
