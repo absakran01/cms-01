@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICMS ~ FrontPage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-inside: 2px;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            position: absolute;
+            top: 10px;
+            left: 4%;
+            width: 100px;
+        }
+
+        .dropmenuDiv {
+            display: inline-block;
+            position: relative;
+            float: left;
+            margin-top: -35px; /* Adjusted the margin-top value */
+        }
+
+        .dropmenuBtn {
+            background-color: #434344;
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            margin-top: 5px; /* Adjusted the margin-top value */
+        }
+
+        .dropdown a {
+            color: #333;
+            padding: 12px 16px;
+            margin-top: -5px; /* Adjusted the margin-top value */
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .dropmenuDiv:hover .dropdown {
+            display: block;
+        }
+
+        .dark-mode body {
+            background-color: #333;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1><big><b>The Imamu Content Management System</b></big></h1>
+    <div class="dropmenuDiv">
+        <button class="dropmenuBtn">
+            <i class="fas fa-cog"></i> Settings
+        </button>
+
+        <!-- Dropdown content -->
+        <div class="dropdown">
+            <a href="/Settings">Account Settings</a>
+            <a href="/logout">Sign Out</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <!-- Add your navigation items if needed -->
+    </ul>
+</nav>
+
+<div class="container" id="subject1">
+    <a href="/SWE"><h1>Software Engineering</h1></a>
+</div>
+
+<div class="container" id="subject2" style="width: 1050px;border-radius: 30px;">
+    <a href="/Cpp"><h1><b>C++</b></h1></a>
+</div>
+
+<div class="container" id="subject3" style="width: 1050px;border-radius: 30px;">
+    <a href="/Algorithms"><h1><b>Algorithms</b></h1></a>
+</div>
+
+<!-- Add more containers for other subjects if needed -->
+
+<footer>
+    &copy;2023 IMAMU
+</footer>
+</body>
+
+</html>
