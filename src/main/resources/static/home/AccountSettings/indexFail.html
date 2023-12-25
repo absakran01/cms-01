@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:xmlns:="com.Example.CMS01.Entity.User">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TICMS ~ Account Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            background-color: grey;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 380px;
+            border-radius: 20px;
+            border: 2px solid black;
+            margin: 20px auto;
+            padding: 20px; /* Add padding to center the content vertically */
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .logo-img {
+            position: absolute;
+            top: 10px;
+            left: 4%;
+            width: 100px; /* You can adjust the width as needed */
+        }
+
+        .text-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 48%; /* Adjusted width */
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #484848; /* Previous color */
+            color: white;
+            padding: 10px 20px;
+            border: #b0b0b0;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 15px; /* Increased margin-bottom */
+        }
+        button:hover {
+            background-color: #7f7f80;
+        }
+        .delete-button {
+            width: 48%; /* Set the width to match the input fields */
+            padding: 10px 20px;
+            border: #b0b0b0;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .delete-button:hover {
+            background-color: #7f7f80;
+        }
+        .delete-button {
+            width: auto; /* Set width to auto to make it smaller */
+            padding: 5px 10px; /* Adjusted padding to make it smaller */
+            background-color: #d9534f; /* Red */
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #c9302c; /* Lighter tone of red on hover */
+        }
+
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <a href="/" style="color: darkcyan;">Home</a>
+    <h1><big><b>Account Settings</b></big></h1>
+</header>
+
+<nav>
+    <b>Authentication</b>
+</nav>
+
+<div class="container">
+    <h2>Update User</h2>
+    <form th:action="@{/updateUserAndSecurityInfo}" th:object="${userWrapper}" method="post">
+
+        <div>
+            <div class="alert alert-danger">Bad credentials. Please try again.</div>
+        </div>
+
+        <div class="text-group">
+            <!-- User fields -->
+            <input type="text" placeholder="Username" th:field="*{user.username}" required>
+            <input type="password" placeholder="Password" th:field="*{user.password}" required>
+        </div>
+
+        <div class="text-group">
+            <!-- SecurityInfo fields -->
+            <input type="text" placeholder="New username" th:field="*{NewCred.username}" required>
+            <input type="text" placeholder="New Password" th:field="*{NewCred.password}" required>
+        </div>
+
+        <button type="submit">Update</button><br>
+    </form>
+    <a th:href="@{/deleteUser}" class="delete-button">Delete Account</a>
+</div>
+
+<footer>
+    &copy;2023 IMAMU
+</footer>
+
+</body>
+
+</html>
