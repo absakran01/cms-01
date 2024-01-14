@@ -35,7 +35,7 @@ public class HomePageController {
 
 //    api requests
     @RequestMapping(value = "/api/Users", method = RequestMethod.GET)
-    public void giveUserTrophy(@RequestParam(required = true, name = "course") String course){
+    public String giveUserTrophy(@RequestParam(required = true, name = "course") String course){
         switch (course){
             case "SWE" :
                 userService.SWEQuiz();
@@ -50,6 +50,7 @@ public class HomePageController {
                 System.out.println("Cpp trophy given to "+userService.getCurrentUser().getUsername());
                 break;
         }
+        return "succes";
     }
 
     @RequestMapping("/api/Users/Trophies")
