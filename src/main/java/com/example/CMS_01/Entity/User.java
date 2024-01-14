@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 /*
- * 'user' is a reserved keyword in SQL, so we name our table users. If you name it user, you will get a org.h2.jdbc.JdbcSQLSyntaxErrorException. 
+ * 'user' is a reserved keyword in SQL, so we name our table users. If you name it user, you will get a org.h2.jdbc.JdbcSQLSyntaxErrorException.
  *  See https://docs.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql?view=sql-server-ver16 for a list of reserved keywords.
  */
 @Getter
@@ -40,23 +40,13 @@ public class User {
 	private String password;
 
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	String SWEArticle;
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	String SWEVideo;
-	@GeneratedValue(strategy = GenerationType.TABLE)
 	String SWEQuiz;
 
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	String CppArticle;
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	String CppVideo;
+
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	String CppQuiz;
 
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	String AlgorithmsArticle;
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	String AlgorithmsVideo;
+
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	String AlgorithmsQuiz;
 }
