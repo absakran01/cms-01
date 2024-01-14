@@ -34,7 +34,7 @@ public class HomePageController {
 
 
 //    api requests
-    @RequestMapping(value = "/api/Users")
+    @RequestMapping(value = "/api/Users", method = RequestMethod.POST)
     public void giveUserTrophy(@RequestParam(required = true, name = "course") String course){
         switch (course){
             case "SWE" :
