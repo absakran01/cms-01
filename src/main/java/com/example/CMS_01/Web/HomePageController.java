@@ -34,8 +34,8 @@ public class HomePageController {
 
 
 //    api requests
-    @RequestMapping(value = "/api/Users", method = RequestMethod.GET)
-    public String giveUserTrophy(@RequestParam(required = true, name = "course") String course){
+    @RequestMapping("/api/Users")
+    public String giveUserTrophy(@RequestParam String course){
         switch (course){
             case "SWE" :
                 userService.SWEQuiz();
