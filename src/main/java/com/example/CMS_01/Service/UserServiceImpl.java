@@ -1,5 +1,6 @@
 package com.example.CMS_01.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.example.CMS_01.Entity.User;
@@ -36,6 +37,14 @@ public class UserServiceImpl implements UserService {
         return unwrapUser(user, id);
     }
 
+    /**
+     * @return
+     */
+    @Override
+    public List<User> getAllUsers() {
+       return (List<User>) userRepository.findAll();
+    }
+
 
     @Override
     public User getUser(String username) {
@@ -54,17 +63,11 @@ public class UserServiceImpl implements UserService {
 //             ) {
 //            trophyRepository.save(x);
 //        }
-        user.setAlgorithmsArticle("");
-        user.setAlgorithmsVideo("");
         user.setAlgorithmsQuiz("");
 
         user.setCppQuiz("");
-        user.setCppArticle("");
-        user.setCppVideo("");
 
         user.setSWEQuiz("");
-        user.setSWEVideo("");
-        user.setSWEArticle("");
 
         return userRepository.save(user);
     }
@@ -87,58 +90,11 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Boolean SWEArticle() {
-
-        user.setSWEArticle("1");
-        userRepository.save(user);
-        System.out.println(this.getUser(user.getUsername()).getSWEArticle());
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public Boolean SWEVideo() {
-
-        user.setSWEVideo("1");
-        userRepository.save(user);
-        System.out.println(this.getUser(user.getUsername()).getSWEVideo());
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
     public Boolean SWEQuiz() {
 
         user.setSWEQuiz("1");
         userRepository.save(user);
         System.out.println(this.getUser(user.getUsername()).getSWEQuiz());
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public Boolean CppArticle() {
-
-        user.setCppArticle("1");
-        userRepository.save(user);
-        System.out.println(this.getUser(user.getUsername()).getCppArticle());
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public Boolean CppVideo() {
-
-        user.setCppVideo("1");
-        System.out.println(this.getUser(user.getUsername()).getCppVideo());
         return null;
     }
 
@@ -154,29 +110,7 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    /**
-     * @return
-     */
-    @Override
-    public Boolean AlgorithmsArticle() {
 
-        user.setAlgorithmsArticle("1");
-        userRepository.save(user);
-        System.out.println(this.getUser(user.getUsername()).getAlgorithmsArticle());
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    @Override
-    public Boolean AlgorithmsVideo() {
-
-        user.setAlgorithmsVideo("1");
-        userRepository.save(user);
-        System.out.println(this.getUser(user.getUsername()).getAlgorithmsVideo());
-        return null;
-    }
 
     /**
      * @return

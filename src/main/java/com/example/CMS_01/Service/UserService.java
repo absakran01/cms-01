@@ -4,6 +4,8 @@ package com.example.CMS_01.Service;
 import com.example.CMS_01.Entity.User;
 import com.example.CMS_01.POJO.UserWrapper;
 
+import java.util.List;
+
 public interface UserService {
     //wipe every thing (DANGEROUS)
     void destroy();
@@ -11,20 +13,17 @@ public interface UserService {
     User getUser(Long id);
 
 
+
+    List<User> getAllUsers();
     User getUser(String username);
     User saveUser(User user);
     void setUser(String user);
     User getCurrentUser();
-    Boolean SWEArticle();
-    Boolean SWEVideo();
+
     Boolean SWEQuiz();
 
-    Boolean CppArticle();
-    Boolean CppVideo();
     Boolean CppQuiz();
 
-    Boolean AlgorithmsArticle();
-    Boolean AlgorithmsVideo();
     Boolean AlgorithmsQuiz();
 
     void deleteUserByUsername(String username);

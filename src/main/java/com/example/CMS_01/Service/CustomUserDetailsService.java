@@ -12,7 +12,7 @@ import java.util.Collections;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
+//added service for newDiscussionPost entity
     private final UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {
