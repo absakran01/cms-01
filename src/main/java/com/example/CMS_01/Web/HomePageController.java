@@ -34,7 +34,7 @@ public class HomePageController {
 
 
 //    api requests
-    @RequestMapping("/api/Users")
+    @GetMapping("api/Users")
     public String giveUserTrophy(@RequestParam String course){
         switch (course){
             case "SWE" :
