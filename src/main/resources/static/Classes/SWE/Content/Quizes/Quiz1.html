@@ -127,16 +127,21 @@
         <!-- <input type="submit" value="Submit" id="submit-button"> -->
     </form>
 
+    <div class="button-container">
     <form id = "submit-button">
     <input type="submit" value="Submit" id="submit-button">
+        <button id="retry-button" onclick="redirect()" ></button>
     </form>
-
-    <button style="margin-left: 1051px; display: none;" id="retry-button" class="fade-in">Retry</button>
+    </div>
 
     
     <div id="results"></div>
     
     <script>
+
+        function redirect(){location.reload();}
+
+        document.getElementById("retry-button").hidden=true;
         // Function to shuffle the questions
         function shuffleQuestions() {
         const form = document.getElementById('quiz-form');
@@ -152,22 +157,22 @@
         shuffleQuestions();
 
 
-        document.getElementById('retry-button').addEventListener('click', function () {
-            // Reset the quiz
-            document.getElementById('quiz-form').reset();
-
-            // Enable the form
-            document.getElementById('quiz-form').style.pointerEvents = "auto";
-
-            // Hide the retry button
-            document.getElementById('retry-button').style.display = "none";
-
-            // Clear the results
-            document.getElementById('results').innerHTML = '';
-
-            // Shuffle the questions
-            shuffleQuestions();
-        });
+        // document.getElementById('retry-button').addEventListener('click', function () {
+        //     // Reset the quiz
+        //     document.getElementById('quiz-form').reset();
+        //
+        //     // Enable the form
+        //     document.getElementById('quiz-form').style.pointerEvents = "auto";
+        //
+        //     // Hide the retry button
+        //     document.getElementById('retry-button').style.display = "none";
+        //
+        //     // Clear the results
+        //     document.getElementById('results').innerHTML = '';
+        //
+        //     // Shuffle the questions
+        //     shuffleQuestions();
+        // });
 
         document.getElementById('submit-button').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -193,6 +198,8 @@
                     }
                 }
             }
+            if(score===5)
+                fetch("/api/Users?course=SWE")
 
             // Display the score with animation
             const resultsDiv = document.getElementById('results');
@@ -203,7 +210,8 @@
             document.getElementById('quiz-form').style.pointerEvents = "none";
 
             // Show the retry button
-            document.getElementById('retry-button').style.display = "block";
+            document.getElementById('retry-button').hidden=false;
+            document.getElementById('retry-button').textContent='Retry';
         });
     </script>
 

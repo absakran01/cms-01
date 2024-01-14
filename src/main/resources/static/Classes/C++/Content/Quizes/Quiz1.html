@@ -28,42 +28,42 @@
             text-align: center;
         }
 
-                /* CSS for the score animation */
-                #results {
+        /* CSS for the score animation */
+        #results {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-  
-    #quiz-form {
-        text-align: center;
-        max-width: 500px; /* Adjust this value to your liking */
-        margin: 0 auto;
-    }
 
-    /* Center-align questions */
-    .question {
-        text-align: left;
-    }
+        #quiz-form {
+            text-align: center;
+            max-width: 500px; /* Adjust this value to your liking */
+            margin: 0 auto;
+        }
 
-    #submit-button,
-    
-    #retry-button,
+        /* Center-align questions */
+        .question {
+            text-align: left;
+        }
 
-    #results {
-        text-align: center;
-        margin: 10px 0;
-    }
+        #submit-button,
 
-    .button-container {
-        text-align: center;
-        margin: 20px 0; /* Adjust the margin as needed to space the buttons */
-    }
+        #retry-button,
 
-    .button-container button {
-        margin-top: 10px; /* Adjust the margin as needed to space the buttons */
-    }
-        </style>
+        #results {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0; /* Adjust the margin as needed to space the buttons */
+        }
+
+        .button-container button {
+            margin-top: 10px; /* Adjust the margin as needed to space the buttons */
+        }
+    </style>
 </head>
 
 <body>
@@ -76,7 +76,7 @@
 
     <nav>
         <!-- Navigation content here -->
-        <b>Quizes</b> 
+        <b>Quizes</b>
     </nav>
 
     <!--
@@ -91,7 +91,7 @@
             <input type="radio" name="q1" value="b" id="q1b"> <label for="q1b">b) Ken Thompson</label><br>
             <input type="radio" name="q1" value="c" id="q1c"> <label for="q1c">c) Bjarne Stroustrup</label><br>
         </div>
-    
+
         <!-- Question 2 -->
         <div class="question">
             <p> What is C++?</p>
@@ -99,7 +99,7 @@
             <input type="radio" name="q2" value="b" id="q2b"> <label for="q2b">b) C++ supports both procedural and OOP language</label><br>
             <input type="radio" name="q2" value="c" id="q2c"> <label for="q2c">c) C++ is a procedural programming language</label><br>
         </div>
-    
+
         <!-- Question 3 -->
         <div class="question">
             <p> Which of the following is used for comments in C++?</p>
@@ -107,7 +107,7 @@
             <input type="radio" name="q3" value="b" id="q3b"> <label for="q3b">b) both // comment or /* comment */ </label><br>
             <input type="radio" name="q3" value="c" id="q3c"> <label for="q3c">c)  // comment</label><br>
         </div>
-       
+
         <!-- Question 4 -->
         <div class="question">
             <p> Which of the following user-defined header file extension used in c++?</p>
@@ -115,7 +115,7 @@
             <input type="radio" name="q4" value="b" id="q4b"> <label for="q4b">b) h</label><br>
             <input type="radio" name="q4" value="c" id="q4c"> <label for="q4c">c) cpp</label><br>
         </div>
-    
+
         <!-- Question 5 -->
         <div class="question">
             <p> c++ was releaseed in</p>
@@ -123,20 +123,26 @@
             <input type="radio" name="q5" value="b" id="q5b"> <label for="q5b">b) 1945</label><br>
             <input type="radio" name="q5" value="c" id="q5c"> <label for="q5c">c) 2004</label><br>
         </div>
-    
+
         <!-- <input type="submit" value="Submit" id="submit-button"> -->
     </form>
 
-    <form id = "submit-button">
-    <input type="submit" value="Submit" id="submit-button">
-    </form>
+    <div class="button-container">
+        <form id = "submit-button">
+            <input type="submit" value="Submit" id="submit-button">
+            <button id="retry-button" onclick="redirect()"></button>
+        </form>
+    </div>
 
-    <button style="margin-left: 1051px; display: none;" id="retry-button" class="fade-in">Retry</button>
 
-    
     <div id="results"></div>
-    
+
     <script>
+
+        function redirect(){location.reload();}
+
+
+        document.getElementById("retry-button").hidden=true;
         // Function to shuffle the questions
         function shuffleQuestions() {
         const form = document.getElementById('quiz-form');
@@ -152,22 +158,22 @@
         shuffleQuestions();
 
 
-        document.getElementById('retry-button').addEventListener('click', function () {
-            // Reset the quiz
-            document.getElementById('quiz-form').reset();
-
-            // Enable the form
-            document.getElementById('quiz-form').style.pointerEvents = "auto";
-
-            // Hide the retry button
-            document.getElementById('retry-button').style.display = "none";
-
-            // Clear the results
-            document.getElementById('results').innerHTML = '';
-
-            // Shuffle the questions
-            shuffleQuestions();
-        });
+        // document.getElementById('retry-button').addEventListener('click', function () {
+        //     // Reset the quiz
+        //     document.getElementById('quiz-form').reset();
+        //
+        //     // Enable the form
+        //     document.getElementById('quiz-form').style.pointerEvents = "auto";
+        //
+        //     // Hide the retry button
+        //     document.getElementById('retry-button').style.display = "none";
+        //
+        //     // Clear the results
+        //     document.getElementById('results').innerHTML = '';
+        //
+        //     // Shuffle the questions
+        //     shuffleQuestions();
+        // });
 
         document.getElementById('submit-button').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -193,6 +199,8 @@
                     }
                 }
             }
+            if(score===5)
+                fetch("/api/Users?course=Cpp")
 
             // Display the score with animation
             const resultsDiv = document.getElementById('results');
@@ -203,7 +211,9 @@
             document.getElementById('quiz-form').style.pointerEvents = "none";
 
             // Show the retry button
-            document.getElementById('retry-button').style.display = "block";
+            document.getElementById('retry-button').hidden=false;
+            document.getElementById('retry-button').textContent='Retry';
+
         });
     </script>
 

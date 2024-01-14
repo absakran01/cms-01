@@ -112,6 +112,15 @@
                     <h2 class="text-center">Login Form</h2>
                 </div>
                 <div class="card-body">
+
+
+<!--                    error message here-->
+                    <div id = "errorMessage" class="alert alert-danger" style="
+            color: #721c24;
+            background-color: #f8d7da;"
+                    ></div>
+
+
                     <form id="loginForm" method="post" role="form" action="/login" class="form-horizontal">
                         <div class="form-group mb-3">
                             <label class="control-label"> username</label>
@@ -137,5 +146,22 @@
     </div>
 </div>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to get the current URL
+        function getCurrentUrl() {
+            return window.location.href;
+        }
+
+        // Get the current URL
+        const currentUrl = getCurrentUrl();
+
+        // Check if the current URL is /login?error
+        if (currentUrl.includes('/login?error')) {
+            document.getElementById("errorMessage").textContent='Invalid username or password';
+        }
+    });
+</script>
 
 </html>

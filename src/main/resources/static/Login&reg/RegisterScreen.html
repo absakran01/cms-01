@@ -81,12 +81,71 @@
 
 <div class="container">
     <h2>Register</h2>
-    <form th:action="@{/saveUser}" th:object="${user}" method="post">
-        <input type="text" placeholder="Username" th:field="*{username}" required>
-        <input type="password" placeholder="Password" th:field="*{password}" required>
-        <button type="submit" value="submit">Register</button><br>
-        <a th:href="@{/login}" style="color: aqua;">Already a user? Login!</a>
+
+    <div id = "errorMessage" class="alert alert-danger" style="
+            color: #721c24;
+            background-color: #f8d7da;"
+    ></div>
+    <form id="registrationForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <!-- Add other form fields as needed -->
+    <button type="button" onclick="registerUser()">Register</button>
     </form>
+
+    <a href="/login" style="color: aqua;">Already a user? Login!</a>
+
+    <script>
+        function registerUser() {
+            // Get form data
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Create a User object
+            const user = {
+                username: username,
+                password: password
+                // Add other properties as needed
+            };
+
+            // Send JSON data to the server
+            fetch('/saveUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    // Redirect or perform other actions based on the server response
+                    location.replace("login")
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle errors, e.g., show an error message to the user
+                    displayErrorMessage("Username already taken");
+                });
+        }
+
+        function displayErrorMessage(message) {
+            const errorMessageElement = document.getElementById('errorMessage');
+            errorMessageElement.textContent = message;
+            errorMessageElement.padding=10;
+            errorMessageElement.border=1;
+        }
+    </script>
+
 </div>
 
 </body>
