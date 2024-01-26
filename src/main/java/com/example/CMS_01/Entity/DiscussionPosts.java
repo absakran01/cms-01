@@ -27,5 +27,4 @@ public class DiscussionPosts {
 
     private Date createdDate;
 
-    // Getters and setters
 }

@@ -14,7 +14,12 @@ public class DiscussionServiceImpl implements DiscussionService {
     private DiscussionRepository discussionRepository;
     @Override
     public void savePost(DiscussionPosts post) {
-        post.setCreatedDate(new Date());
+        DiscussionPosts postDTO = new DiscussionPosts();
+
+        postDTO.setCreatedDate(new Date());
+        postDTO.setUsername(post.getUsername());
+        postDTO.setPost(post.getPost());
+
         discussionRepository.save(post);
     }
 

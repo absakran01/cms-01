@@ -55,21 +55,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        List<Trophy> list = new ArrayList<Trophy>();
-//        list.add(new Trophy("SWE", 10,30,user));
-//        list.add(new Trophy("Cpp", 10,30,user));
-//        list.add(new Trophy("Algorithms", 10,30,user));
-//        for (Trophy x:list
-//             ) {
-//            trophyRepository.save(x);
-//        }
-        user.setAlgorithmsQuiz("");
 
-        user.setCppQuiz("");
+        User userDTO = new User();
+        userDTO.setUsername(user.getUsername());
+        userDTO.setPassword(user.getPassword());
 
-        user.setSWEQuiz("");
 
-        return userRepository.save(user);
+
+        userDTO.setAlgorithmsQuiz("");
+
+        userDTO.setCppQuiz("");
+
+        userDTO.setSWEQuiz("");
+
+        return userRepository.save(userDTO);
     }
 
     static User unwrapUser(Optional<User> entity, Long id) {
