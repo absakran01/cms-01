@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #0f172a;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-color: #94a3b8;
             width: 380px;
             border-radius: 20px;
             overflow: visible;
@@ -38,6 +38,11 @@
 
         .subject h2 {
             text-align: justify;
+        }
+        .bigContainer{
+            display: flex;  
+            height: 500px;
+            border-radius: 200px;
         }
     </style>
 </head>
@@ -52,42 +57,48 @@
     </nav>
 
     <!-- Your content containers go here -->
-    <div class="container" id="subject1">
+    <div class="bigContainer" >
+    <div class="container" id="subject1" >
         <div class="subject">
-            <h2 style="margin-left:140px;">Articles</h2>
+            <h2 style="text-align: center;">Articles</h2>
             <ul>
                 <li><a href="/SWE/article1"
                      >Article 1: Agile vs. waterfall project management</a></li>
             </ul>
         </div>
     </div>
-
     <div class="container" id="subject2">
         <div class="subject">
-            <h2 style="margin-left:110px;">Video Guides</h2>
+            <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/SWE/Video1">Video 1: The ''include'' Dependency
-                </a></li>
+                <li><a href="/SWE/Video1">Video 1: The ''include'' Dependency <br></br> </a></li>
+                <li><a href="/SWE/Video1">Video 2:  <br></br> </a></li>
+                <li><a href="/SWE/Video1">Video 3:  <br></br> </a></li>
+                <li><a href="/SWE/Video1">Video 4:  <br></br> </a></li>
+                <li><a href="/SWE/Video1">Video 5:  <br></br> </a></li>
             </ul>
         </div>
     </div>
-
     <div class="container" id="subject3">
         <div class="subject">
-            <h2 style="margin-left:140px;">Quizzes</h2>
-            <ul>
-                <a href="/SWE/Quiz1">Quiz 1</a>
+            <h2 style="text-align: center;">Quizzes</h2>
+            <ul style="margin-top: 5px;">
+               <li> <a href="/SWE/Quiz1">Quiz 1</a> 
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
-                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">
+                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;"> 
+                    </li>
+                    <br>
+                     <li> <a href="/SWE/Quiz1">Quiz 2</a> </li>
+                     <br>
+                     <li> <a href="/SWE/Quiz1">Quiz 3</a> </li>
 
-            </ul>
+                    </ul>
         </div>
     </div>
-
         <div class="container">
-            <a href="/SWE/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
+            <a href="/SWE/Discussion"> <h3 style="text-align: center;">The Discussion Board</h3></a>
         </div>
-
+    </div>
     <!-- <div class="container" id="subject4">
         <div class="subject">
             <h2 style="margin-left:160px;">PDFs</h2>
@@ -97,7 +108,6 @@
         </div>
     </div> -->
 
-    <!-- Add more containers for additional content -->
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

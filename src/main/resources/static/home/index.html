@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +10,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #0f172a;
             color: #333;
             transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 30px;
             text-align: center;
@@ -25,7 +24,7 @@
         }
 
         nav {
-            background-color: #444;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
@@ -42,33 +41,25 @@
             margin-right: 20px;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
         h1 {
             font-size: 24px;
-            margin-inside: 2px;
             margin-bottom: 20px;
         }
 
         .logo-img {
             position: absolute;
             top: 10px;
-            left: 4%;
-            width: 100px;
+            /* right: 4%; */
+            margin-left: 700px;
+            margin-top: 25px;
+            width: 150px;
         }
 
         .dropmenuDiv {
             display: inline-block;
             position: relative;
             float: left;
-            margin-top: -35px; /* Adjusted the margin-top value */
+            margin-top: -80px; /* Adjusted the margin-top value */
         }
 
         .dropmenuBtn {
@@ -114,7 +105,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #1e293b;
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -122,12 +113,104 @@
             bottom: 0;
             width: 100%;
         }
+
+    .bigContainer{
+            display: flex;
+        }
+        
+    .container {
+            max-width: 420px;
+            height: 360px;
+            text-align: center;
+            line-height: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #475569;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            align-content: center;
+        }
+
+    #subject1 {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background-image: url('/home/SWE.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0% 0%; /* Initial size set to hidden */
+    transition: background-size 0.3s ease;
+    }
+
+    #subject1:hover {
+        background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+    }
+
+    #subject1 a, #subject2 h1 {
+        position: relative;
+        z-index: 1; /* Move the text and hyperlink above the background image */
+    }
+
+    #subject1 h1 {
+        color: #94a3b8;
+    }
+
+    #subject2 {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background-image: url('/home/cplusedgy.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0% 0%; /* Initial size set to hidden */
+    transition: background-size 0.3s ease;
+    }
+
+    #subject2:hover {
+        background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+    }
+
+    #subject2 a, #subject2 h1 {
+        position: relative;
+        z-index: 1; /* Move the text and hyperlink above the background image */
+    }
+
+    #subject2 h1 {
+        color: #94a3b8;
+    }
+    
+    #subject3 {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background-image: url('/home/algor.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0% 0%; /* Initial size set to hidden */
+    transition: background-size 0.3s ease;
+    }
+
+    #subject3:hover {
+        background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+    }
+
+    #subject3 a, #subject3 h1 {
+        position: relative;
+        z-index: 1; /* Move the text and hyperlink above the background image */
+    }
+
+    #subject3 h1 {
+        color: #94a3b8;
+    }
+    
+
     </style>
 </head>
 
 <body>
 <header>
     <h1><big><b>The Imamu Content Management System</b></big></h1>
+    <img src="/home/logoedited.png" class="logo-img">
     <div class="dropmenuDiv">
         <button class="dropmenuBtn">
             <i class="fas fa-cog"></i> Settings
@@ -146,19 +229,21 @@
         <!-- Add your navigation items if needed -->
     </ul>
 </nav>
-<div class="container" id="subject1">
-    <a href="/SWE"><h1>Software Engineering</h1></a>
+
+<div class = "bigContainer">
+<div class="container" id="subject1" style="width: 1050px;border-radius: 100px;">
+    <a href="/SWE"><h1 style="font-size: 50px;">SWE</h1></a>
 </div>
 
-<div class="container" id="subject2" style="width: 1050px;border-radius: 30px;">
-    <a href="/Cpp"><h1><b>C++</b></h1></a>
+<div class="container" id="subject2" style="width: 1050px;border-radius: 100px;">
+    <a href="/Cpp"><h1 style="font-size: 50px;"><b>C++</b></h1></a>
+
 </div>
 
-<div class="container" id="subject3" style="width: 1050px;border-radius: 30px;">
-    <a href="/Algorithms"><h1><b>Algorithms</b></h1></a>
+<div class="container" id="subject3" style="width: 1050px;border-radius: 100px;">
+    <a href="/Algorithms"><h1 style="font-size: 50px;"><b>Algorithms</b></h1></a>
 </div>
-
-<!-- Add more containers for other subjects if needed -->
+</div>
 
 <footer>
     &copy;2023 IMAMU
