@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TICMS ~ Authentication</title>
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #0f172a;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-color: #a78bfa;
+            color: aliceblue;
+            background-image: linear-gradient(#1e1b4b,#020617); 
             width: 380px;
             border-radius: 20px;
             border: 2px solid black;
@@ -53,7 +54,6 @@
         }
 
         form {
-            border: 1px solid #ccc;
             padding: 20px;
             border-radius: 5px;
         }
@@ -66,9 +66,8 @@
             box-sizing: border-box;
         }
 
-
         button {
-            background-color: #484848;
+            background-color: #cbd5e1;
             color: white;
             padding: 10px 20px;
             border: #b0b0b0;
@@ -77,9 +76,8 @@
         }
 
         button:hover {
-            background-color: #7f7f80;
+            background-color: #818cf8;
         }
-
 
         .register-link {
             margin-top: 10px;
@@ -91,7 +89,7 @@
         }
 
         .register-link:hover {
-            text-decoration: underline;
+            color: #a78bfa;
         }
     </style>
 </head>
@@ -103,7 +101,6 @@
 <nav>
     <b>Authentication</b>
 </nav>
-<br /><br />
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -113,17 +110,14 @@
                 </div>
                 <div class="card-body">
 
-
-<!--                    error message here-->
+            <!-- error message here-->
                     <div id = "errorMessage" class="alert alert-danger" style="
             color: #721c24;
             background-color: #f8d7da;"
                     ></div>
-
-
                     <form id="loginForm" method="post" role="form" action="/login" class="form-horizontal">
                         <div class="form-group mb-3">
-                            <label class="control-label"> username</label>
+                            <label class="control-label"> Username</label>
                             <input type="text" id="username" name="username" class="form-control"
                                    placeholder="Username" />
                         </div>
@@ -134,12 +128,12 @@
                                    placeholder="password" />
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                        <div class="form-group mb-3">
-                            <a href="/register" class="register-link">Not a user? Register!</a>
+                            <button type="submit" class="btn btn-primary" style="color: black;">Submit</button>
                         </div>
                     </form>
+                    <div class="form-group mb-3">
+                        <a href="/register" class="register-link">Not a user? Register!</a>
+                    </div>
                 </div>
             </div>
         </div>
