@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #0f172a;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-color: #94a3b8;
             width: 380px;
             border-radius: 20px;
             overflow: visible;
@@ -39,6 +39,13 @@
         .subject h2 {
             text-align: justify;
         }
+
+        .bigContainer{
+            display: flex;  
+            height: 500px;
+            border-radius: 200px;
+        }
+
     </style>
 </head>
 <body>
@@ -52,7 +59,7 @@
     </nav>
 
     <!-- Your content containers go here -->
-    
+    <div class="bigContainer" >
     <div class="container" id="subject1">
         <div class="subject">
             <h2 style="margin-left:140px;">Articles</h2>
@@ -66,7 +73,7 @@
         <div class="subject">
             <h2 style="margin-left:110px;">Video Guides</h2>
             <ul>
-                <li><a href="/Algorithms/Video1">Video 1:
+                <li><a href="/Algorithms/Video1">Video 1: Breadth First Search Algorithm
                 </a></li>
             </ul>
         </div>
@@ -83,21 +90,22 @@
             </ul>
         </div>
     </div>
+    <div class="container" id="subject4">
+        <div class="subject">
+            <h2 style="margin-left:160px;">PDFs</h2>
+            <ul>
+                <li><a href="#">PDF1: </a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
     <div class="container">
         <a href="/Algorithms/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
     </div>
     
-    <!-- <div class="container" id="subject4">
-        <div class="subject">
-            <h2 style="margin-left:140px;">PDFs</h2>
-            <ul>
-                <li><a href="#">PDFs</a></li>
-            </ul>
-        </div>
-    </div> -->
-
-
     <!-- Add more containers for additional content -->
 </body>
 <script>

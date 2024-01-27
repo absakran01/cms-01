@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #0f172a;
-    color: #333;
+    color: azure;
     transition: background-color 0.3s, color 0.3s;
     box-sizing: border-box;
 }
@@ -34,7 +34,6 @@ nav ul li {
     margin-right: 20px;
 }
 
-
 .container {
     max-width: 960px;
     margin: 20px auto;
@@ -49,7 +48,6 @@ h1 {
     margin-inside: 2px;
     margin-bottom: 20px;
 }
-
 
 footer {
     background-color: #1e293b;
@@ -89,7 +87,6 @@ textarea:hover {
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.7); /* Add a subtle box-shadow on hover */
     transition: background-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
 }
-
 
 button {
     padding: 10px;
