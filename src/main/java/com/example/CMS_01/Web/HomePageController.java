@@ -116,6 +116,19 @@ public class HomePageController {
     public String getAlgorithmsArticle(){
         return "/Classes/Algorithms/Content/Article1.html";}
 
+//    PDFs
+    // @GetMapping("/SWE/PDF1")
+    // public String getSwePDF(){
+    //     return "/Classes/SWE/Content/PDFs/PDF1.html";}
+
+    // @GetMapping("/Cpp/PDF1")
+    // public String getCppPDF(){
+    //     return "/Classes/C++/Content/PDFs/PDF1.html";}
+
+    // @GetMapping("/Algorithms/PDF1")
+    // public String getAlgorithmsPDF(){
+    //     return "/Classes/Algorithms/Content/PDFs/PDF1.html";}
+
 //    discussion boards
     @RequestMapping("/SWE/Discussion")
     public String GetSWEDiscussion(){
