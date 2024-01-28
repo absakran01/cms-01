@@ -30,12 +30,13 @@
         }
 
         .container {
-            background-color: #94a3b8;
+            background-image: linear-gradient(to top left,#0fbbda,rgb(5, 5, 99));
             width: 380px;
             border-radius: 20px;
             overflow: visible;
             border: 2px solid black;
             margin: 20px auto; /* Centers the containers horizontally */
+            color: white;
         }
 
         .subject h2 {
@@ -46,6 +47,15 @@
             display: flex;  
             height: 500px;
             border-radius: 200px;
+        }
+
+        .Atext {
+        color: white;
+        transition: color 0.2s ease; /* Adjust the duration and timing function as needed */
+        }
+
+        .Atext:hover {
+        color: rgb(31, 234, 241);; /* Replace with the color you want on hover */
         }
 
     </style>
@@ -66,8 +76,7 @@
         <div class="subject">
             <h2 style="text-align: center;">Articles</h2>
             <ul>
-                <li><a href="/SWE/article1"
-                     >Article 1: Agile vs. waterfall project management</a></li>
+                <li><a href="/SWE/article1" class="Atext">Article 1: Agile vs. waterfall project management</a></li>
             </ul>
         </div>
     </div>
@@ -75,11 +84,11 @@
         <div class="subject">
             <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/SWE/Video1">Video 1: The ''include'' Dependency <br></br> </a></li>
-                <li><a href="/SWE/Video1">Video 2:  <br></br> </a></li>
-                <li><a href="/SWE/Video1">Video 3:  <br></br> </a></li>
-                <li><a href="/SWE/Video1">Video 4:  <br></br> </a></li>
-                <li><a href="/SWE/Video1">Video 5:  <br></br> </a></li>
+                <li><a href="/SWE/Video1" class="Atext">Video 1: The ''include'' Dependency <br></br> </a></li>
+                <li><a href="/SWE/Video1" class="Atext">Video 2:  <br></br> </a></li>
+                <li><a href="/SWE/Video1" class="Atext">Video 3:  <br></br> </a></li>
+                <li><a href="/SWE/Video1" class="Atext">Video 4:  <br></br> </a></li>
+                <li><a href="/SWE/Video1" class="Atext">Video 5:  <br></br> </a></li>
             </ul>
         </div>
     </div>
@@ -87,29 +96,29 @@
         <div class="subject">
             <h2 style="text-align: center;">Quizzes</h2>
             <ul style="margin-top: 5px;">
-               <li> <a href="/SWE/Quiz1">Quiz 1</a> 
+               <li> <a href="/SWE/Quiz1" class="Atext">Quiz 1</a> 
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
                      style="max-width: 50px; width: 50px; height: 50px; margin: 0px;"> 
                     </li>
                     <br>
-                     <li> <a href="/SWE/Quiz1">Quiz 2</a> </li>
+                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 2</a> </li>
                      <br>
-                     <li> <a href="/SWE/Quiz1">Quiz 3</a> </li>
+                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 3</a> </li>
                     </ul>
         </div>
     </div>
     <div class="container" id="subject4">
         <div class="subject">
-            <h2 style="text-align: center;">PDFs</h2>
+            <h2 style="text-align: center;" >PDFs</h2>
             <ul>
-                <li><a href="#">PDF1: </a></li>
+                <li><a href="#" class="Atext">PDF1: </a></li>
             </ul>
         </div>
     </div>
     </div>
 
     <div class="container">
-        <a href="/SWE/Discussion"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+        <a href="/SWE/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
     </div>
 
 </body>

@@ -30,12 +30,13 @@
         }
 
         .container {
-            background-color: #94a3b8;
+            background-image: linear-gradient(to top left,#0fbbda,rgb(5, 5, 99));
             width: 380px;
             border-radius: 20px;
             overflow: visible;
             border: 2px solid black;
             margin: 20px auto; /* Centers the containers horizontally */
+            color: white;
         }
 
         .subject h2 {
@@ -46,6 +47,15 @@
             display: flex;  
             height: 500px;
             border-radius: 200px;
+        }
+
+        .Atext {
+        color: white;
+        transition: color 0.2s ease; /* Adjust the duration and timing function as needed */
+        }
+
+        .Atext:hover {
+        color: rgb(31, 234, 241);; /* Replace with the color you want on hover */
         }
 
     </style>
@@ -64,18 +74,18 @@
     <div class="bigContainer" >
     <div class="container" id="subject1">
         <div class="subject">
-            <h2 style="margin-left:140px;">Articles</h2>
+            <h2 style="text-align: center;">Articles</h2>
             <ul>
-                <li><a href="/Algorithms/article1">Article 1: What Is An Algorithm? Definition, Types, Characteristics</a></li>
+                <li><a href="/Algorithms/article1" class="Atext">Article 1: What Is An Algorithm? Definition, Types, Characteristics</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="subject2">
         <div class="subject">
-            <h2 style="margin-left:110px;">Video Guides</h2>
+            <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/Algorithms/Video1">Video 1: Breadth First Search Algorithm
+                <li><a href="/Algorithms/Video1" class="Atext">Video 1: Breadth First Search Algorithm
                 </a></li>
             </ul>
         </div>
@@ -83,9 +93,9 @@
 
     <div class="container" id="subject3">
         <div class="subject">
-            <h2 style="margin-left:140px;">Quizzes</h2>
+            <h2 style="text-align: center;">Quizzes</h2>
             <ul>
-                <a href="/Algorithms/Quiz1">Quiz 1
+                <a href="/Algorithms/Quiz1" class="Atext">Quiz 1
                     </a>
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
                      style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">
@@ -94,9 +104,9 @@
     </div>
     <div class="container" id="subject4">
         <div class="subject">
-            <h2 style="margin-left:160px;">PDFs</h2>
+            <h2 style="text-align: center;">PDFs</h2>
             <ul>
-                <li><a href="#">PDF1: </a></li>
+                <li><a href="#" class="Atext">PDF1: </a></li>
             </ul>
             </div>
         </div>
@@ -105,7 +115,7 @@
 
 
     <div class="container">
-        <a href="/Algorithms/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
+        <a href="/Algorithms/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
     </div>
     
     <!-- Add more containers for additional content -->
