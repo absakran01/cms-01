@@ -37,34 +37,75 @@
         }
 
   
-    #quiz-form {
+        #quiz-form {
         text-align: center;
         max-width: 500px; /* Adjust this value to your liking */
         margin: 0 auto;
+        cursor: pointer;
+        font-size: 20px;
     }
 
-    .question {
-        text-align: left;
-        color: aliceblue;
-    }
+        .question {
+            text-align: left;
+            color: aliceblue;
+        }
 
-    #submit-button,
+        #submit-button{
+        background-color: #118db3;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition-duration: 0.1s;
+        cursor: pointer;
+    }
     
-    #retry-button,
+        #submit-button:hover{
+            background-color: #35c4f0;
+        }
+        
+        #retry-button{
+            background-color: #118db3;
+            border: none;
+            color: white;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            text-decoration: none;
+            /* display: inline-block; */
+            font-size: 16px;
+            transition-duration: 0.1s;
+            cursor: pointer;
+        }
 
-    #results {
-        text-align: center;
-        margin: 10px 0;
-    }
+        #retry-button:hover{
+            background-color: #35c4f0;
+        }
 
-    .button-container {
-        text-align: center;
-        margin: 20px 0; /* Adjust the margin as needed to space the buttons */
-    }
+        input[type="radio"] {
+            width: 17px; /* Adjust the width as needed */
+            height: 17px; /* Adjust the height as needed */
+            margin-right: 5px; /* Add some spacing between the radio button and the label */
+        }
 
-    .button-container button {
-        margin-top: 10px; /* Adjust the margin as needed to space the buttons */
-    }
+        #results {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0; /* Adjust the margin as needed to space the buttons */
+        }
+
+        .button-container button {
+            margin-top: 10px; /* Adjust the margin as needed to space the buttons */
+        }
+
         </style>
 </head>
 
@@ -189,7 +230,7 @@
 
             // Display the score with animation
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = `<p>Your score: ${score} out of 5</p>`;
+            resultsDiv.innerHTML = `<p style="color: white;">Your score: ${score} out of 5</p>`;
             resultsDiv.style.opacity = 1; // Trigger the fade-in animation
 
             // Disable the form

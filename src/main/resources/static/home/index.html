@@ -64,7 +64,7 @@
             margin-top: -80px; /* Adjusted the margin-top value */
         }
 
-        /*actuall dropmenubutton*/
+        /*actuall dropmenu BUTTON*/
         .dropmenuBtn {
             background-color: #22344d;
             color: white;
@@ -75,10 +75,14 @@
             cursor: pointer;
         }
 
+        .dropmenuBtn:hover{
+            background-color: #395377;
+        }
+        /*dropmenu content*/
         .dropdown {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
+            background-color: #0a3e86;
             min-width: 160px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
@@ -95,7 +99,7 @@
         }
 
         .dropdown a:hover {
-            background-color: #ddd;
+            background-color: #2970d4;
         }
 
         .dropmenuDiv:hover .dropdown {
@@ -253,6 +257,7 @@
 <header>
     <h1><big><b>The Imamu Content Management System</b></big></h1>
     <img src="/home/logoedited.png" class="logo-img">
+
     <div class="dropmenuDiv">
         <button class="dropmenuBtn">
             <i class="fas fa-cog"></i> Settings
@@ -260,8 +265,8 @@
 
         <!-- Dropdown content -->
         <div class="dropdown">
-            <a href="/Settings">Account Settings</a>
-            <a href="/logout">Sign Out</a>
+            <a href="/Settings" style="color: white;">Account Settings</a>
+            <a href="/logout" style="color: white;">Sign Out</a>
         </div>
     </div>
 </header>
