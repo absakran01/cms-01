@@ -104,3 +104,12 @@ button:hover {
     transition: background-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
 }
 
+.returnfun{
+    color: darkcyan;
+    transition: 0.3s;
+}
+
+.returnfun:hover{
+    color: rgb(68, 233, 233);
+    font-size: larger;
+}

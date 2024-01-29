@@ -85,6 +85,22 @@
         .login-link:hover {
             color: #a78bfa;
         }
+
+        .btn-primary {
+            background-color: #2d0599;
+            color: white;
+            border-radius: 50px;
+            padding: 18px;
+            margin: 20px;
+            width: 220px;
+            transition: font-size 0.2s ease; /* Added transition for font-size */
+        }
+
+        .btn-primary:hover {
+            background-color: #5f2fe0;
+            font-size: larger;
+        }
+
     </style>
 </head>
 <body>
@@ -111,7 +127,7 @@
     <input type="password" id="password" name="password" required>
     <br>
     <!-- Add other form fields as needed -->
-    <button type="button" onclick="registerUser()" style="color: black;">Register</button>
+    <button type="button" class="btn-primary" onclick="registerUser()">Register</button>
     </form>
 
     <a href="/login" class="login-link">Already a user? Login!</a>

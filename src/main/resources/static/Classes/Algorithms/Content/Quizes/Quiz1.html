@@ -51,7 +51,7 @@
         }
 
         #submit-button{
-        background-color: #118db3;
+        background-color: #4814d6;
         border: none;
         color: white;
         width: 120px;
@@ -60,31 +60,32 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        transition-duration: 0.1s;
         cursor: pointer;
+        transition-duration: 0.1s;
     }
     
-        #submit-button:hover{
-            background-color: #35c4f0;
-        }
-        
-        #retry-button{
-            background-color: #118db3;
-            border: none;
-            color: white;
-            width: 120px;
-            height: 40px;
-            text-align: center;
-            text-decoration: none;
-            /* display: inline-block; */
-            font-size: 16px;
-            transition-duration: 0.1s;
-            cursor: pointer;
-        }
+    #submit-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
+    }
+    
+    #retry-button{
+        background-color: #4814d6;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.1s;
+    }
 
-        #retry-button:hover{
-            background-color: #35c4f0;
-        }
+    #retry-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
+    }
 
         input[type="radio"] {
             width: 17px; /* Adjust the width as needed */
@@ -106,13 +107,22 @@
             margin-top: 10px; /* Adjust the margin as needed to space the buttons */
         }
 
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
         </style>
 </head>
 
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/Algorithms"> Algorithms <a>
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/Algorithms"> Algorithms <a>
 
         <h1><b>Algorithms</b></h1>
     </header>

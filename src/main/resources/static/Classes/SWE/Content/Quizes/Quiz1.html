@@ -52,7 +52,7 @@
     }
 
     #submit-button{
-        background-color: #118db3;
+        background-color: #4814d6;
         border: none;
         color: white;
         width: 120px;
@@ -61,30 +61,31 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        transition-duration: 0.1s;
         cursor: pointer;
+        transition-duration: 0.1s;
     }
     
     #submit-button:hover{
-        background-color: #35c4f0;
+        background-color: #9670fd;
+        font-size: larger;
     }
     
     #retry-button{
-        background-color: #118db3;
+        background-color: #4814d6;
         border: none;
         color: white;
         width: 120px;
         height: 40px;
         text-align: center;
         text-decoration: none;
-        /* display: inline-block; */
         font-size: 16px;
-        transition-duration: 0.1s;
         cursor: pointer;
+        transition-duration: 0.1s;
     }
 
     #retry-button:hover{
-        background-color: #35c4f0;
+        background-color: #9670fd;
+        font-size: larger;
     }
 
     input[type="radio"] {
@@ -106,13 +107,23 @@
     .button-container button {
         margin-top: 10px; /* Adjust the margin as needed to space the buttons */
     }
-        </style>
+
+    .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+    .returnfun:hover{
+        color: rgb(68, 233, 233);
+        font-size: larger;
+    }
+    </style>
 </head>
 
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/SWE"> Software Engineering <a>
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/SWE"> Software Engineering <a>
 
         <h1><b>Software Engineering</b></h1>
     </header>
