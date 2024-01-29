@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICMS ~ S.E: Quiz 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;           
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #020617;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* CSS for the score animation */
+        #results {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+  
+    #quiz-form {
+        text-align: center;
+        max-width: 500px; /* Adjust this value to your liking */
+        margin: 0 auto;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /* Center-align questions */
+    .question {
+        text-align: left;
+        color: aliceblue;
+    }
+
+    #submit-button{
+        background-color: #4814d6;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.1s;
+    }
+    
+    #submit-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
+    }
+    
+    #retry-button{
+        background-color: #4814d6;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.1s;
+    }
+
+    #retry-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
+    }
+
+    input[type="radio"] {
+        width: 17px; /* Adjust the width as needed */
+        height: 17px; /* Adjust the height as needed */
+        margin-right: 5px; /* Add some spacing between the radio button and the label */
+    }
+
+    #results {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .button-container {
+        text-align: center;
+        margin: 20px 0; /* Adjust the margin as needed to space the buttons */
+    }
+
+    .button-container button {
+        margin-top: 10px; /* Adjust the margin as needed to space the buttons */
+    }
+
+    .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+    .returnfun:hover{
+        color: rgb(68, 233, 233);
+        font-size: larger;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/SWE"> Software Engineering <a>
+
+        <h1><b>Software Engineering</b></h1>
+    </header>
+
+    <nav>
+        <!-- Navigation content here -->
+        <b>Quizes</b> 
+    </nav>
+
+    <!--
+        underneath is the quiz content
+    -->
+
+    <form id="quiz-form">
+        <!-- Question 1 -->
+        <div class="question">
+            <p> What does “P&D” stand for?</p>
+            <input type="radio" name="q1" value="a" id="q1a"> <label for="q1a">a) Pipelines and Drainage</label><br>
+            <input type="radio" name="q1" value="b" id="q1b"> <label for="q1b">b) Prepare and Defuse</label><br>
+            <input type="radio" name="q1" value="c" id="q1c"> <label for="q1c">c) Plan and Document</label><br>
+        </div>
+    
+        <!-- Question 2 -->
+        <div class="question">
+            <p> ability to access system with username and password is called ___:</p>
+            <input type="radio" name="q2" value="a" id="q2a"> <label for="q2a">a) Control</label><br>
+            <input type="radio" name="q2" value="b" id="q2b"> <label for="q2b">b) Vulnerability</label><br>
+            <input type="radio" name="q2" value="c" id="q2c"> <label for="q2c">c) Asset</label><br>
+        </div>
+    
+        <!-- Question 3 -->
+        <div class="question">
+            <p> database of sales record is called ____:</p>
+            <input type="radio" name="q3" value="a" id="q3a"> <label for="q3a">a) Attack</label><br>
+            <input type="radio" name="q3" value="b" id="q3b"> <label for="q3b">b) Asset</label><br>
+            <input type="radio" name="q3" value="c" id="q3c"> <label for="q3c">c) Control</label><br>
+        </div>
+    
+        <!-- Question 4 -->
+        <div class="question">
+            <p> Scanning a system for viruses periodcally is Called:</p>
+            <input type="radio" name="q4" value="a" id="q4a"> <label for="q4a">a) Rescan</label><br>
+            <input type="radio" name="q4" value="b" id="q4b"> <label for="q4b">b) Control</label><br>
+            <input type="radio" name="q4" value="c" id="q4c"> <label for="q4c">c) Research</label><br>
+        </div>
+    
+        <!-- Question 5 -->
+        <div class="question">
+            <p> which one of these companies is a SaaS company?</p>
+            <input type="radio" name="q5" value="a" id="q5a"> <label for="q5a">a) Zoom</label><br>
+            <input type="radio" name="q5" value="b" id="q5b"> <label for="q5b">b) Nova</label><br>
+            <input type="radio" name="q5" value="c" id="q5c"> <label for="q5c">c) Roco</label><br>
+        </div>
+    
+        <!-- <input type="submit" value="Submit" id="submit-button"> -->
+    </form>
+
+    <div class="button-container">
+    <form id = "submit-button">
+    <input type="submit" value="Submit" id="submit-button">
+        <button id="retry-button" onclick="redirect()" ></button>
+    </form>
+    </div>
+
+    
+    <div id="results"></div>
+    
+    <script>
+
+        function redirect(){location.reload();}
+
+        document.getElementById("retry-button").hidden=true;
+        // Function to shuffle the questions
+        function shuffleQuestions() {
+        const form = document.getElementById('quiz-form');
+        const questions = Array.from(form.querySelectorAll('.question'));
+        questions.sort(() => Math.random() - 0.5);
+        questions.forEach((question, index) => {
+            form.appendChild(question); // Reorder the questions within the form
+        });
+    }
+
+
+        // Initial shuffle of questions
+        shuffleQuestions();
+
+
+        // document.getElementById('retry-button').addEventListener('click', function () {
+        //     // Reset the quiz
+        //     document.getElementById('quiz-form').reset();
+        //
+        //     // Enable the form
+        //     document.getElementById('quiz-form').style.pointerEvents = "auto";
+        //
+        //     // Hide the retry button
+        //     document.getElementById('retry-button').style.display = "none";
+        //
+        //     // Clear the results
+        //     document.getElementById('results').innerHTML = '';
+        //
+        //     // Shuffle the questions
+        //     shuffleQuestions();
+        // });
+
+        document.getElementById('submit-button').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let score = 0;
+
+            // Define the correct answers
+            const correctAnswers = {
+                q1: "c",
+                q2: "b",
+                q3: "b",
+                q4: "b",
+                q5: "a"
+            };
+
+            // Check user's answers and calculate the score
+            for (let i = 1; i <= 5; i++) {
+                const questionName = "q" + i;
+                const selectedAnswer = document.querySelector(`input[name=${questionName}]:checked`);
+
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === correctAnswers[questionName]) {
+                        score++;
+                    }
+                }
+            }
+            if(score===5)
+                fetch("/api/Users?course=SWE")
+
+            // Display the score with animation
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<p style="color: white;">Your score: ${score} out of 5</p>`;
+            resultsDiv.style.opacity = 1; // Trigger the fade-in animation
+
+
+            // Disable the form
+            document.getElementById('quiz-form').style.pointerEvents = "none";
+
+            // Show the retry button
+            document.getElementById('retry-button').hidden=false;
+            document.getElementById('retry-button').textContent='Retry';
+        });
+    </script>
+
+</body>
+</html>
