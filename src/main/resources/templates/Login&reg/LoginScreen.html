@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TICMS ~ Authentication</title>
     <style>
         body {
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-color: #a78bfa;
+            color: aliceblue;
+            background-image: linear-gradient(#1e1b4b,#020617); 
             width: 380px;
             border-radius: 20px;
             border: 2px solid black;
@@ -53,7 +57,6 @@
         }
 
         form {
-            border: 1px solid #ccc;
             padding: 20px;
             border-radius: 5px;
         }
@@ -66,9 +69,8 @@
             box-sizing: border-box;
         }
 
-
         button {
-            background-color: #484848;
+            background-color: #cbd5e1;
             color: white;
             padding: 10px 20px;
             border: #b0b0b0;
@@ -77,9 +79,8 @@
         }
 
         button:hover {
-            background-color: #7f7f80;
+            background-color: #818cf8;
         }
-
 
         .register-link {
             margin-top: 10px;
@@ -91,60 +92,106 @@
         }
 
         .register-link:hover {
-            text-decoration: underline;
+            color: #a78bfa;
         }
+
+        .btn-primary {
+            background-color: #2d0599;
+            color: white;
+            border-radius: 50px;
+            padding: 18px;
+            margin: 20px;
+            width: 220px;
+            transition: font-size 0.2s ease; /* Added transition for font-size */
+        }
+
+        .btn-primary:hover {
+            background-color: #5f2fe0;
+            font-size: larger;
+        }
+
     </style>
 </head>
 
 <body>
 <header>
-    <h1><b>The Imamu Content Management System</b></h1>
+    <h1><b id="header">The Imamu Content Management System</b></h1>
 </header>
 <nav>
-    <b>Authentication</b>
+    <b id="minorHeader1">Authentication</b>
 </nav>
-<br /><br />
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Login Form</h2>
+                    <h2 class="text-center" id="minorHeader2">Login Form</h2>
                 </div>
                 <div class="card-body">
 
-
-<!--                    error message here-->
-                    <div id = "errorMessage" class="alert alert-danger" style="
+            <!-- error message here-->
+                    <div hidden="hidden" id = "errorMessage" class="alert alert-danger" style="
             color: #721c24;
             background-color: #f8d7da;"
-                    ></div>
-
-
+                    >Invalid username or password</div>
                     <form id="loginForm" method="post" role="form" action="/login" class="form-horizontal">
                         <div class="form-group mb-3">
-                            <label class="control-label"> username</label>
+                            <label class="control-label" id="label1"> Username</label>
                             <input type="text" id="username" name="username" class="form-control"
                                    placeholder="Username" />
                         </div>
 
                         <div class="form-group mb-3">
-                            <label class="control-label"> Password</label>
+                            <label class="control-label" id="label2"> Password</label>
                             <input type="password" id="password" name="password" class="form-control"
                                    placeholder="password" />
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                        <div class="form-group mb-3">
-                            <a href="/register" class="register-link">Not a user? Register!</a>
+<!--<<<<<<< Updated upstream-->
+                            <button type="submit" class="btn-primary" id="submit-btn">Submit</button>
+<!--=======-->
+<!--                            <button type="submit" class="btn btn-primary" style="color: black;" id="submit-btn" href="/">Submit</button>-->
+<!--&gt;>>>>>> Stashed changes-->
                         </div>
                     </form>
+                    <div class="form-group mb-3">
+                        <a href="/register" class="register-link" id="register">Not a user? Register!</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        //catch error
+        if(window.location.href.includes("error")){
+            //stop script from running
+            document.getElementById("errorMessage").style.display = "block";
+
+        }
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {     document.getElementById("header").innerHTML = "نظام إدارة محتوى جامعة الإمام محمد بن سعود الإسلامية";
+            document.getElementById("minorHeader1").innerHTML = "التوثيق";
+            document.getElementById("minorHeader2").innerHTML = "تسجيل الدخول";
+            document.getElementById("label1").innerHTML = "اسم المستخدم";
+            document.getElementById("label2").innerHTML = "كلمة المرور";
+            document.getElementById("errorMessage").innerHTML = "اسم المستخدم أو كلمة المرور غير صحيحة";
+            document.getElementById("username").placeholder = "اسم المستخدم";
+            document.getElementById("password").placeholder = "كلمة المرور";
+            document.getElementById("submit-btn").innerHTML = "تسجيل الدخول";
+            document.getElementById("register").innerHTML = "لست مستخدما؟ سجل!";
+
+        }
+    })
+    });
+</script>
+
 </body>
 
 <script>
@@ -159,7 +206,8 @@
 
         // Check if the current URL is /login?error
         if (currentUrl.includes('/login?error')) {
-            document.getElementById("errorMessage").textContent='Invalid username or password';
+            // Show the error message
+            document.getElementById('errorMessage').style.display = 'block';
         }
     });
 </script>

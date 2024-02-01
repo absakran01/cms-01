@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:xmlns="com.Example.CMS01.Entity.User">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICMS ~ Registration</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #020617;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #a78bfa;
+            color: aliceblue;
+            background-image: linear-gradient(#1e1b4b,#020617); 
+            width: 380px;
+            border-radius: 20px;
+            border: 2px solid black;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .subject h2 {
+            text-align: justify;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #484848;
+            color: white;
+            padding: 10px 20px;
+            border: #b0b0b0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7f7f80;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1><b>The Imamu Content Management System</b></h1>
+</header>
+
+<nav>
+    <b>Authentication</b>
+</nav>
+
+<div class="container">
+    <h2>Register</h2>
+    <form th:action="@{/saveUser}" th:object="${user}" method="post">
+        <div>
+            <div class="alert alert-danger">Username already taken</div>
+        </div>
+        <input type="text" placeholder="Username" th:field="*{username}" required>
+        <input type="password" placeholder="Password" th:field="*{password}" required>
+        <button type="submit" value="submit">Register</button><br>
+        <a th:href="@{/login}" style="color: aqua;">Already a user? Login!</a>
+    </form>
+</div>
+
+</body>
+
+</html>
