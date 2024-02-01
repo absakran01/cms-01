@@ -145,7 +145,7 @@
 <script>
     addEventListener("DOMContentLoaded", function(){
         //enable arabic
-        fetch("api/arabic")
+        fetch("/api/arabic")
             .then(response => response.json())
             .then(data => {
                 if(data == true) {
