@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
@@ -49,6 +51,17 @@
         section {
             margin-bottom: 20px;
             padding: 20px;
+            color: #fff;       
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
         }
 
     </style>
@@ -63,21 +76,26 @@
     </head>
     <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/Cpp"> C++ <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/Cpp" id="c++"> C++ <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/Cpp" id="c++"> C++ <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-            <h1><b>C++</b></h1>
+            <h1><b id="header">C++</b></h1>
     </header>
 
     <nav>
         <!-- Navigation content here -->
-        <b>Articles</b>
+        <b id="minorHeader">Articles</b>
     </nav>
 
     <main>
         <!-- Updated article content here -->
         <section id="section1">
-            <h2 style="margin-left: 165px;"> C++ Programming Language</h2>
+            <h2 style="text-align: center;"> C++ Programming Language</h2>
             <p>
                 C++ is a statically typed, compiled, general-purpose, case-sensitive, free-form programming language that supports procedural, object-oriented, and generic programming.
                 C++ is regarded as a middle-level language, as it comprises a combination of both high-level and low-level language features.
@@ -87,7 +105,7 @@
         </section>
 
         <section id="section2">
-            <h2 style="margin-left: 165px;"> Object-Oriented Programming</h2>
+            <h2 style="text-align: center;"> Object-Oriented Programming</h2>
             <p>
                 C++ fully supports object-oriented programming, including the four pillars of object-oriented development −
             <ol>
@@ -100,7 +118,7 @@
         </section>
 
         <section id="section3">
-            <h2 style="margin-left: 165px;"> Standard Libraries</h2>
+            <h2 style="text-align: center;"> Standard Libraries</h2>
             <p>
                 Standard C++ consists of three important parts −
             <ol>
@@ -112,7 +130,7 @@
         </section>
 
         <section id="section4">
-            <h2 style="margin-left: 165px;"> The ANSI Standard</h2>
+            <h2 style="text-align: center;"> The ANSI Standard</h2>
             <p>
                 The ANSI standard is an attempt to ensure that C++ is portable; that code you write for Microsoft's compiler will compile without errors, using a compiler on a Mac, UNIX, a Windows box, or an Alpha.
                 The ANSI standard has been stable for a while, and all the major C++ compiler manufacturers support the ANSI standard.
@@ -120,7 +138,7 @@
         </section>
 
         <section id="section5">
-            <h2 style="margin-left: 165px;"> Learning C++</h2>
+            <h2 style="text-align: center;"> Learning C++</h2>
             <p>
                 The most important thing while learning C++ is to focus on concepts.
                 The purpose of learning a programming language is to become a better programmer; that is, to become more effective at designing and implementing new systems and at maintaining old ones.
@@ -129,7 +147,7 @@
         </section>
 
         <section id="section6">
-            <h2 style="margin-left: 165px;"> Use of C++</h2>
+            <h2 style="text-align: center;"> Use of C++</h2>
             <p>
                 C++ is used by hundreds of thousands of programmers in essentially every application domain.
                 C++ is being highly used to write device drivers and other software that rely on direct manipulation of hardware under realtime constraints.
@@ -138,11 +156,26 @@
             </p>
         </section>
 
-        <footer>
+        <footer style="text-align: center">
             <a href="https://www.tutorialspoint.com/cplusplus/cpp_overview.htm" target="_blank"><h6 style="color: darkcyan;">
                 Article Source: https://www.tutorialspoint.com/cplusplus/cpp_overview.htm
             </h6></a>
         </footer>
     </main>
     </body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {            document.getElementById("c++").innerHTML = "لغة سي بلس بلس";
+            document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("header").innerHTML = "لغة سي بلس بلس";
+            document.getElementById("minorHeader").innerHTML = "المقالات";
+        }});
+    });
+</script>
 </html>

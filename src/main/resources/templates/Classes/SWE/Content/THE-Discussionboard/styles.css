@@ -2,14 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
+    background-image: linear-gradient(#0e2357,#0f172a);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: azure;
     box-sizing: border-box;
 }
 
 header {
-    background-color: #333;
+    background-color: #020617;
     color: #fff;
     padding: 30px;
     text-align: center;
@@ -17,7 +18,7 @@ header {
 }
 
 nav {
-    background-color: #444;
+    background-color: #1e293b;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -34,12 +35,11 @@ nav ul li {
     margin-right: 20px;
 }
 
-
 .container {
     max-width: 960px;
     margin: 20px auto;
     padding: 40px; /* Adjust this value to make the container bigger vertically */
-    background-color: #fff;
+    background-color: #1e293b;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -50,9 +50,8 @@ h1 {
     margin-bottom: 20px;
 }
 
-
 footer {
-    background-color: #333;
+    background-color: #1e293b;
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -69,6 +68,7 @@ footer {
     border-bottom: 1px solid #ddd;
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
     word-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+    color: azure;
 }
 
 .input-container {
@@ -83,9 +83,15 @@ textarea {
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
+textarea:hover {
+    background-color: #c1c5e1; /* Change the background color on hover */
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.7); /* Add a subtle box-shadow on hover */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+}
+
 button {
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #94a3b8;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -93,5 +99,17 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.7); /* Add a subtle box-shadow on hover */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+}
+
+.returnfun{
+    color: darkcyan;
+    transition: 0.3s;
+}
+
+.returnfun:hover{
+    color: rgb(68, 233, 233);
+    font-size: larger;
 }

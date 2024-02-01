@@ -11,13 +11,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #333;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -25,14 +26,18 @@
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-image: linear-gradient(#1e1b4b,#020617);
+/*<<<<<<< Updated upstream*/
+            color: white;
+/*=======*/
+/*>>>>>>> Stashed changes*/
             width: 380px;
             border-radius: 20px;
             border: 2px solid black;
@@ -75,28 +80,35 @@
         }
 
         button {
-            background-color: #484848; /* Previous color */
+            background-color: #0300c0; /* Previous color */
             color: white;
             padding: 10px 20px;
             border: #b0b0b0;
             border-radius: 5px;
             cursor: pointer;
             margin-bottom: 15px; /* Increased margin-bottom */
+            transition: font-size 0.2s ease; /* Added transition for font-size */
         }
+
         button:hover {
-            background-color: #7f7f80;
+            background-color: #107cf8;
+            font-size: larger;
+
         }
+
         .delete-button {
             width: 48%; /* Set the width to match the input fields */
             padding: 10px 20px;
-            border: #b0b0b0;
+            border: #ff0000;
             border-radius: 5px;
             cursor: pointer;
             margin-bottom: 10px;
+            transition: font-size 0.2s ease; /* Added transition for font-size */
         }
 
         .delete-button:hover {
-            background-color: #7f7f80;
+            background-color: black;
+            font-size: larger;
         }
 
         a {
@@ -107,13 +119,15 @@
         .delete-button {
             width: auto; /* Set width to auto to make it smaller */
             padding: 5px 10px; /* Adjusted padding to make it smaller */
-            background-color: #d9534f; /* Red */
+            background-color: #720400; /* Red */
             color: white;
             cursor: pointer;
+            transition: font-size 0.2s ease; /* Added transition for font-size */
         }
 
         .delete-button:hover {
-            background-color: #c9302c; /* Lighter tone of red on hover */
+            background-color: #ff0800; /* Lighter tone of red on hover */
+            font-size: larger;
         }
 
         .space {
@@ -121,7 +135,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #1e293b;
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -129,44 +143,127 @@
             bottom: 0;
             width: 100%;
         }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
     </style>
 </head>
 
 <body>
 <header>
-    <a href="/" style="color: darkcyan;">Home</a>
-    <h1><big><b>Account Settings</b></big></h1>
+<!--<<<<<<< Updated upstream-->
+    <a href="/" class = "returnfun" id="home">Home</a>
+    <h1><big><b id="header">Account Settings</b></big></h1>
+<!--=======-->
+<!--    <a href="/" style="color: darkcyan;" id="home">Home</a>-->
+<!--    <h1><big><b id="header">Account Settings</b></big></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
 </header>
 
 <nav>
-    <b>Authentication</b>
+    <b id="minorHeader1">Authentication</b>
 </nav>
 
 <div class="container">
-    <h2>Update User</h2>
-    <form th:action="@{/updateUserAndSecurityInfo}" th:object="${userWrapper}" method="post">
+    <h2 id="minorHeader2">Update User</h2>
+    <form >
         <div class="text-group">
             <!-- User fields -->
-            <input type="text" placeholder="Username" th:field="*{user.username}" required>
-            <input type="password" placeholder="Password" th:field="*{user.password}" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
         </div>
 
         <div class="text-group">
             <!-- SecurityInfo fields -->
-            <input type="text" placeholder="New username" th:field="*{NewCred.username}" required>
-            <input type="text" placeholder="New Password" th:field="*{NewCred.password}" required>
+            <input type="text" id="newUsername" placeholder="New Username" required>
+            <input type="text" id="newPassword" placeholder="New Password" required>
         </div>
 
-        <button type="submit">Update</button>
+        <button id="button1" type="button" onclick="updateUser()">Update</button>
         <div class="space"></div> <!-- Empty div for space -->
-        <a th:href="@{/deleteUser}" class="delete-button">Delete Account</a>
+        <a id="button2" onclick="deleteUser()" class="delete-button">Delete Account</a>
     </form>
 </div>
 
-<footer>
+
+<footer id="footer">
     &copy;2023 IMAMU
+
 </footer>
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+                    document.getElementById("header").innerHTML = "إعدادات الحساب";
+                    document.getElementById("minorHeader1").innerHTML = "التوثيق";
+                    document.getElementById("minorHeader2").innerHTML = "تحديث المستخدم";
+                    document.getElementById("input1").placeholder = "اسم المستخدم";
+                    document.getElementById("input2").placeholder = "كلمة المرور";
+                    document.getElementById("input3").placeholder = "اسم المستخدم الجديد";
+                    document.getElementById("input4").placeholder = "كلمة المرور الجديدة";
+                    document.getElementById("button1").innerHTML = "تحديث";
+                    document.getElementById("button2").innerHTML = "حذف الحساب";
+                    document.getElementById("footer").innerHTML = "&copy;2023 جامعة الإمام محمد بن سعود الإسلامية";
+                }
+            });
+    });
+</script>
+
+<script>
+    function updateUser() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var newUsername = document.getElementById("newUsername").value;
+        var newPassword = document.getElementById("newPassword").value;
+
+        var data = {
+            user: {
+                username: username,
+                password: password
+            },
+            newCred: {
+                username: newUsername,
+                password: newPassword
+            }
+        };
+
+        fetch("/api/users/update", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        // then we redirect to /logout
+        location.replace("/logout");
+    }
+
+    function deleteUser() {fetch("deleteUser")
+        //then we redirect to /logout
+        location.replace("/logout");
+    }
+</script>
+
 
 </html>

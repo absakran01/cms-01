@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICMS ~ Algorithms: Video 1</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TICMS ~ S.E: Video 5</title>
     <style>
+
         body {
             background-image: linear-gradient(#0e2357,#0f172a);
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed;           
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -110,69 +110,36 @@
 
 <body>
     <header>
-<!--<<<<<<< Updated upstream-->
-        <a class = "returnfun" href="/" id="home">Home</a>
-        <a class = "returnfun" href="/Algorithms" id="header"> Algorithms<a>
-<!--=======-->
-<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
-<!--        <a style="color: darkcyan;" href="/Algorithms" id="header"> Algorithms<a>-->
-<!--&gt;>>>>>> Stashed changes-->
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/SWE"> Software Engineering <a>
 
-        <h1><b id="minorHeader1">Algorithms</b></h1>
+        <h1><b>Software Engineering</b></h1>
     </header>
 
     <nav>
-        <b id="minorHeader2">Videos</b>
+        <b>Videos</b> 
     </nav>
 
-    <div id = "videoContainer" >
-    <iframe width="900px" height="506px" src="https://www.youtube.com/embed/oDqjPvD54Ss?si=PtPON6vKUto5acEy" title="YouTube video player" frameborder="0" allow="accelerometer;
-    autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
-    web-share" allowfullscreen></iframe>
+    <div id = "videoContainer">
+        <iframe width="900px" height="506px" src="https://www.youtube.com/embed/WdY8MFGdfxc?si=3JGjxyfRYWIWgGTk"
+         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+         encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-
+    
     <div id = "right-div">
-        <a href="/Algorithms/Video2" id="button1"> Next Video </a>
+        <a href=""> Next Video </a>
     </div>
     
     <div id = "left-div">
-        <a href="/Algorithms/Video3" id="button2"> previous video </a>
+        <a href=""> previous video </a>
     </div>
 
-<!--<<<<<<< Updated upstream-->
     <div id="playlist-container">
-        <div class="playlist-item"><a href="/Algorithms/Video2">Video 2</a></div>
-        <div class="playlist-item"><a href="/Algorithms/Video3">Video 3</a></div>
+        <div class="playlist-item"><a href="">Video 1</a></div>
+        <div class="playlist-item"><a href="">Video 2</a></div>
+        <div class="playlist-item"><a href="">Video 3</a></div>
+        <div class="playlist-item"><a href="">Video 4</a></div>
     </div>
-<!--=======-->
-<!--    <div id="playlist-container">-->
-<!--        <div class="playlist-item"><a href="">Video 1</a></div>-->
-<!--        <div class="playlist-item"><a href="">Video 2</a></div>-->
-<!--        <div class="playlist-item"><a href="">Video 3</a></div>-->
-<!--        <div class="playlist-item"><a href="">Video 4</a></div>-->
-<!--        <div class="playlist-item"><a href="">Video 5</a></div>-->
-<!--    </div>-->
-<!--&gt;>>>>>> Stashed changes-->
-
+    
 </body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // enable arabic
-        fetch("/api/arabic")
-            .then(response => response.json())
-            .then(data => {
-                if (data) {
-
-            document.getElementById("home").innerHTML = "الصفحة الرئيسية";
-            document.getElementById("header").innerHTML = "الخوارزميات";
-            document.getElementById("minorHeader1").innerHTML = "الخوارزميات";
-            document.getElementById("minorHeader2").innerHTML = "الفيديوهات";
-            document.getElementById("button1").innerHTML = "الفيديو التالي";
-            document.getElementById("button2").innerHTML = "الفيديو السابق";
-        }});
-    });
-</script>
-
-
 </html>

@@ -7,44 +7,79 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-image: linear-gradient(to top left,#0fbbda,rgb(5, 5, 99));
             width: 380px;
             border-radius: 20px;
             overflow: visible;
             border: 2px solid black;
             margin: 20px auto; /* Centers the containers horizontally */
+            color: white;
         }
 
         .subject h2 {
             text-align: justify;
         }
+
+        .bigContainer{
+            display: flex;  
+            height: 500px;
+            border-radius: 200px;
+        }
+
+        .Atext {
+        color: white;
+        transition: color 0.3s; /* Adjust the duration and timing function as needed */
+        text-decoration: none;
+        }
+
+        .Atext:hover {
+        color: rgb(31, 234, 241);; /* Replace with the color you want on hover */
+        font-size: larger;
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
     </style>
 </head>
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <h1><b>Algorithms</b></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <h1><b id="header">Algorithms</b></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <h1><b id="header">Algorithms</b></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
 
     <nav>
@@ -52,56 +87,112 @@
     </nav>
 
     <!-- Your content containers go here -->
-    
+    <div class="bigContainer" >
     <div class="container" id="subject1">
         <div class="subject">
-            <h2 style="margin-left:140px;">Articles</h2>
+            <h2 style="text-align: center;">Articles</h2>
             <ul>
-                <li><a href="/Algorithms/article1">Article 1: What Is An Algorithm? Definition, Types, Characteristics</a></li>
+                <li><a href="/Algorithms/article1" class="Atext">Article 1: What Is An Algorithm? Definition, Types, Characteristics</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="subject2">
         <div class="subject">
-            <h2 style="margin-left:110px;">Video Guides</h2>
+            <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/Algorithms/Video1">Video 1:
-                </a></li>
+                <li><a href="/Algorithms/Video1" class="Atext">Breadth First Search Algorithm <br> <br>
+                <li><a href="/Algorithms/Video2" class="Atext">Dijkstra's algorithm in 3 minutes  <br> <br>
+                    <li><a href="/Algorithms/Video3" class="Atext">Big-O notation in 5 minutes
+                    </a></li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="subject3">
         <div class="subject">
-            <h2 style="margin-left:140px;">Quizzes</h2>
+            <h2 style="text-align: center;">Quizzes</h2>
             <ul>
-                <a href="/Algorithms/Quiz1">Quiz 1
+               <li><a href="/Algorithms/Quiz1" class="Atext">Quiz 1
                     </a>
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
                      style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">
+                </li><br>
             </ul>
         </div>
     </div>
+    <div class="container" id="subject4">
+        <div class="subject">
+            <h2 style="text-align: center;">PDFs</h2>
+            <ul>
+                <li><a href="https://dl.ebooksworld.ir/books/Introduction.to.Algorithms.4th.Leiserson.Stein.Rivest.Cormen.MIT.Press.9780262046305.EBooksWorld.ir.pdf" target="_blank" class="Atext">Introduction to Algorthims </a></li> <br>
+                <li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/e882f34a3f46aa9862953616f6de1c57_MIT6_006S20_final_sol.pdf" target="_blank" class="Atext">exam from MIT </a></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </div>
 
-    <div class="container">
-        <a href="/Algorithms/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
+
+<!--<<<<<<< Updated upstream-->
+    <div class="container" id="subject5">
+        <a href="/Algorithms/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+<!--=======-->
+<!--    <div class="container" id="subject5">-->
+<!--        <a href="/Algorithms/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>-->
+<!--&gt;>>>>>> Stashed changes-->
     </div>
     
-    <!-- <div class="container" id="subject4">
-        <div class="subject">
-            <h2 style="margin-left:140px;">PDFs</h2>
-            <ul>
-                <li><a href="#">PDFs</a></li>
-            </ul>
-        </div>
-    </div> -->
-
-
     <!-- Add more containers for additional content -->
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+                    document.getElementById("header").innerHTML = "الخوارزميات";
+                    document.getElementById("subject1").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">المقالات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/article1" class="Atext">المقالة 1: ما هو الخوارزمية؟ التعريف، الأنواع، الخصائص</a></li>\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+                    document.getElementById("subject2").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">أدلة الفيديو</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/Video1" class="Atext">خوارزمية البحث أولاً بالعرض <br> <br>\n' +
+                        '                <li><a href="/Algorithms/Video2" class="Atext">خوارزمية ديكسترا في 3 دقائق  <br> <br>\n' +
+                        '                <li><a href="/Algorithms/Video3" class="Atext">مفهوم الـ Big-O في 5 دقائق \n' +
+                        '\n' +
+                        '                </a></li>\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+                    document.getElementById("subject3").innerHTML = '<div class="subject">\n' +
+                        '<h2 style="text-align: center;">الاختبارات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/Quiz1" class="Atext">الاختبار 1 </a> ' +
+                        '                <img id="trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"\n' +
+                        '                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+
+                    document.getElementById("subject4").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">الملفات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="https://dl.ebooksworld.ir/books/Introduction.to.Algorithms.4th.Leiserson.Stein.Rivest.Cormen.MIT.Press.9780262046305.EBooksWorld.ir.pdf" target="_blank" class="Atext">مقدمة في الخوارزميات </a></li> <br>\n' +
+                        '                <li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/e882f34a3f46aa9862953616f6de1c57_MIT6_006S20_final_sol.pdf" target="_blank" class="Atext">امتحان من MIT </a></li>\n' +
+                        '            </ul>\n' +
+                        '            </div>\n' +
+                        '        </div>';
+                    document.getElementById("subject5").innerHTML = '<a href="/Algorithms/Discussion" class="Atext"> <h3 style="text-align: center;">لوحة المناقشة</h3></a>';
+
+                }
+
+
+
         // Place the fetch code here
         fetch("/api/Users/Trophies?course=Algorithms")
             .then(response => response.text())
@@ -114,6 +205,7 @@
                 console.error('Error fetching trophy data:', error);
             });
     });
+});
 
 </script>
 </html>

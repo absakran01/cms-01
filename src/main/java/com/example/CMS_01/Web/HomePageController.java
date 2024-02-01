@@ -84,17 +84,56 @@ public class HomePageController {
 
 
 //  Videos
+
+    //SWE
   @GetMapping("/SWE/Video1")
     public String getSWEVideo1(){
         return "/Classes/SWE/Content/Videos/Video1.html";}
+    @GetMapping("/SWE/Video2")
+    public String getSWEVideo2(){
+        return "/Classes/SWE/Content/Videos/Video2.html";}
+    @GetMapping("/SWE/Video3")
+    public String getSWEVideo3(){
+        return "/Classes/SWE/Content/Videos/Video3.html";}
+    @GetMapping("/SWE/Video4")
+    public String getSWEVideo4(){
+        return "/Classes/SWE/Content/Videos/Video4.html";}
+    @GetMapping("/SWE/Video5")
+    public String getSWEVideo5(){
+        return "/Classes/SWE/Content/Videos/Video5.html";}
 
+
+    //C++
     @GetMapping("/Cpp/Video1")
     public String getCppVideo1(){
         return "/Classes/C++/Content/Videos/Video1.html";}
 
+    @GetMapping("/Cpp/Video2")
+    public String getCppVideo2(){
+        return "/Classes/C++/Content/Videos/Video2.html";}
+
+    @GetMapping("/Cpp/Video3")
+    public String getCppVideo3(){
+        return "/Classes/C++/Content/Videos/Video3.html";}
+
+    @GetMapping("/Cpp/Video4")
+    public String getCppVideo4(){
+        return "/Classes/C++/Content/Videos/Video4.html";}
+
+    @GetMapping("/Cpp/Video5")
+    public String getCppVideo5(){
+        return "/Classes/C++/Content/Videos/Video5.html";}
+
+    //Algorithms
     @GetMapping("/Algorithms/Video1")
     public String getAlgorithmsVideo1(){
         return "/Classes/Algorithms/Content/Videos/Video1.html";}
+    @GetMapping("/Algorithms/Video2")
+    public String getAlgorithmsVideo2(){
+        return "/Classes/Algorithms/Content/Videos/Video2.html";}
+    @GetMapping("/Algorithms/Video3")
+    public String getAlgorithmsVideo3(){
+        return "/Classes/Algorithms/Content/Videos/Video3.html";}
 
 
 

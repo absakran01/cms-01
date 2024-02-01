@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICMS ~ S.E: Articles</title>
+    <title>TICMS ~ S.E: Article 1</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;           
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
-        .container {
-            background-color: white;
-            width: 380px;
-            border-radius: 20px;
-            overflow: visible;
-            border: 2px solid black;
-            margin: 20px auto; /* Centers the containers horizontally */
-        }
 
         .subject h2 {
             text-align: justify;
@@ -49,26 +44,42 @@
         section {
             margin-bottom: 20px;
             padding: 20px;
+            color: #fff;       
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
         }
 
     </style>
 </head>
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/SWE"> Software Engineering <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/SWE" id="SWE"> Software Engineering <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/SWE" id="SWE"> Software Engineering <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-        <h1><b>Software Engineering</b></h1>
+        <h1><b id="header">Software Engineering</b></h1>
     </header>
 
     <nav>
         <!-- Navigation content here -->
-        <b>Articles</b> 
+        <b id="minorHeader">Articles</b>
     </nav>
 
     <main>
         <section id="section1">
-            <h2 style="margin-left: 165px;"> Agile vs. waterfall project management</h2>
+            <h2 style="text-align: center;"> Agile vs. waterfall project management</h2>
             <p>
             Early adopters of agile development were often small, self-contained teams working on small, self-contained projects. They proved the agile model can work, to the joy and betterment of software makers around the world. It turned out the waterfall development model wasn't as effective for the development of software as agile project management was for most teams               
             The popularity of agile project management has led to more organizations scaling agile beyond single teams or projects and applying it to whole programs. Agile has even spread beyond development teams to include IT, marketing, business development, and more.
@@ -76,7 +87,7 @@
         </section>
         
         <section id="section2">
-            <h2 style="margin-left: 165px;">What is agile project management?</h2>
+            <h2 style="text-align: center;">What is agile project management?</h2>
             <p>
             Agile project management is an iterative approach to delivering a project, which focuses on continuous releases that incorporate customer feedback. The ability to adjust during each iteration promotes velocity and adaptability. This approach is different from a linear, waterfall project management approach, which follows a set path with limited deviation.               
             With today’s customers and businesses requiring rapid responses and changes, agile provides the flexibility to adjust and iterate during the development process. Agile project management is also a cornerstone of DevOps practices, where development and operations teams work collaboratively.
@@ -84,13 +95,13 @@
         </section>
         
         <section id="section3">
-            <h2 style="margin-left: 165px;">What is waterfall project management? </h2>
+            <h2 style="text-align: center;">What is waterfall project management? </h2>
             <p>
                 The waterfall project management approach entails a clearly defined sequence of execution with project phases that do not advance until a phase receives final approval. Once a phase is completed, it can be difficult and costly to revisit a previous stage. Agile teams may follow a similar sequence yet do so in smaller increments with regular feedback loops. 
                 The waterfall project management approach follows a linear, sequential formula. It works well for work that has predictable, recurring processes, yet it can leave development teams flat-footed and unable to adjust faster than a competitor.                
                 A single missed deadline or scope change during a waterfall project can cause outsized impacts on subsequent releases. Additionally, when a team is fully focused on the next phase of work, resolving technical debt or fixing bugs can be painful if the team is fully allocated to new feature work and always pressing forward to the next stage.
                 this is an illustration of a standard waterfall project:
-                <img src ="/src/main/resources/static/Classes/Subject1/Pictures/Waterfall.png" style="margin-left: 85px; margin-top: 25px;">
+                <img src ="/Classes/SWE/Content/Waterfall.png" style="margin-left: 85px; margin-top: 25px;">
                 <br><br>The waterfall model can exacerbate some of the known challenges of building products:
                 
                 <br><br>>Blockers and dependency management: Traditional project management styles often create "critical paths", where the project can't move forward until a blocking issue is resolved.
@@ -99,7 +110,7 @@
         </section>
 
         <section id="section4">
-            <h2 style="margin-left: 205px;"> The advantages of waterfall </h2>
+            <h2 style="text-align: center;"> The advantages of waterfall </h2>
             <p><ol>
             <li>Requires less coordination due to clearly defined phases sequential processes</li>
             <li>A clear project phase helps to clearly define dependencies of work.</li>
@@ -110,7 +121,7 @@
         </section>
 
         <section id="section5">
-            <h2 style="margin-left: 205px;"> The disadvantages of waterfall </h2>
+            <h2 style="text-align: center;"> The disadvantages of waterfall </h2>
             <p><ol>
             <li>Harder to break up and share work because of stricter phase sequences teams are more specialized</li>
             <li>Risk of time waste due to delays and setbacks during phase transitions.</li>
@@ -120,7 +131,7 @@
         </section>
 
         <section id="section6">
-            <h2 style="margin-left: 205px;"> The advantages of agile  </h2>
+            <h2 style="text-align: center;"> The advantages of agile  </h2>
             <p><ol>
             <li>Faster feedback cycles</li>
             <li>Identifies problems early</li>
@@ -131,7 +142,7 @@
         </section>
 
         <section id="section7">
-            <h2 style="margin-left: 205px;"> The disadvantages of agile  </h2>
+            <h2 style="text-align: center;"> The disadvantages of agile  </h2>
             <p><ol>
             <li>Critical path and inter-project dependencies may not be clearly defined as in waterfall</li>
             <li>There is an organizational learning curve cost</li>
@@ -140,7 +151,7 @@
         </section>
 
         <section id="section8">
-            <h2 style="margin-left: 265px;"> Agile vs. waterfall  </h2>
+            <h2 style="text-align: center;"> Agile vs. waterfall  </h2>
             <p>
             Agile was first adopted by software teams, who moved from the traditional, sequential waterfall approach to a method that garnered consistent feedback and adjustment throughout the development lifecycle.
             Agile project management takes an iterative approach to development by creating several incremental steps with regular feedback intervals. This
@@ -151,7 +162,7 @@
 
 
         <section id="section9">
-            <h2 style="margin-left: 288px;">Conclusion</h2>
+            <h2 style="text-align: center;">Conclusion</h2>
             <p>
                 Agile project management is an innovative approach not only for 
                 software projects but for projects of all stripes. By providing the 
@@ -164,12 +175,27 @@
         </section>
     </main>
 
-
-
-    <footer>
+    <footer style="text-align: center;">
         <a href="https://www.atlassian.com/agile/project-management/project-management-intro" target="_blank"><h6 style="color: darkcyan;">
-            Article Source:https://www.atlassian.com/agile/project-management/project-management-intro
+            Article Source: https://www.atlassian.com/agile/project-management/project-management-intro
             </h6></a>
     </footer>
 </body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("SWE").innerHTML = "هندسة البرمجيات";
+            document.getElementById("header").innerHTML = "هندسة البرمجيات";
+            document.getElementById("minorHeader").innerHTML = "المقالات";
+        }
+    });
+});
+</script>
+
 </html>

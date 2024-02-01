@@ -7,44 +7,79 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-image: linear-gradient(to top left,#0fbbda,rgb(5, 5, 99));
             width: 380px;
             border-radius: 20px;
             overflow: visible;
             border: 2px solid black;
             margin: 20px auto; /* Centers the containers horizontally */
+            color: white;
         }
 
         .subject h2 {
             text-align: justify;
         }
+
+        .bigContainer{
+            display: flex;  
+            height: 500px;
+            border-radius: 200px;
+        }
+
+        .Atext {
+        color: white;
+        transition: color 0.3s; /* Adjust the duration and timing function as needed */
+        text-decoration: none;
+        }
+
+        .Atext:hover {
+        color: rgb(31, 234, 241);; /* Replace with the color you want on hover */
+        font-size: larger;
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
     </style>
 </head>
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <h1><b>Software Engineering</b></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <h1><b id="header">Software Engineering</b></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <h1><b id="header">Software Engineering</b></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
 
     <nav>
@@ -52,57 +87,119 @@
     </nav>
 
     <!-- Your content containers go here -->
-    <div class="container" id="subject1">
+    <div class="bigContainer" >
+    <div class="container" id="subject1" >
         <div class="subject">
-            <h2 style="margin-left:140px;">Articles</h2>
+            <h2 style="text-align: center;">Articles</h2>
             <ul>
-                <li><a href="/SWE/article1"
-                     >Article 1: Agile vs. waterfall project management</a></li>
+                <li><a href="/SWE/article1" class="Atext">Article 1: Agile vs. waterfall project management</a></li>
             </ul>
         </div>
     </div>
-
     <div class="container" id="subject2">
         <div class="subject">
-            <h2 style="margin-left:110px;">Video Guides</h2>
+            <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/SWE/Video1">Video 1: The ''include'' Dependency
-                </a></li>
+                <li><a href="/SWE/Video1" class="Atext">The ''include'' Dependency<br></br> </a></li>
+<!--                <li><a href="/SWE/Video1" class="Atext">The 8 Design Patterns<br></br> </a></li>-->
+<!--                <li><a href="/SWE/Video1" class="Atext">Test-Driven Development<br></br> </a></li>-->
+<!--                <li><a href="/SWE/Video1" class="Atext">What Is Project Management Software?<br></br> </a></li>-->
+<!--                <li><a href="/SWE/Video1" class="Atext">Software Engineering | Software evolution <br></br> </a></li>-->
             </ul>
         </div>
     </div>
-
     <div class="container" id="subject3">
         <div class="subject">
-            <h2 style="margin-left:140px;">Quizzes</h2>
-            <ul>
-                <a href="/SWE/Quiz1">Quiz 1</a>
+            <h2 style="text-align: center;">Quizzes</h2>
+            <ul style="margin-top: 5px;">
+               <li> <a href="/SWE/Quiz1" class="Atext">Quiz 1</a> 
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
-                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">
-
+                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;"> 
+                    </li>
+                    <br>
+<!--                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 2</a> </li>-->
+<!--                     <br>-->
+<!--                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 3</a> </li>-->
+<!--                    </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="container" id="subject4">
+        <div class="subject">
+            <h2 style="text-align: center;" >PDFs</h2>
+            <ul>
+                <li><a href="https://engineering.futureuniversity.com/BOOKS%20FOR%20IT/Software-Engineering-9th-Edition-by-Ian-Sommerville.pdf" target="_blank" class="Atext">Somervile 9<br></br></a></li>
+                <li><a href="https://www.cs.uni.edu/~wallingf/teaching/172/materials/exam-final.pdf" target="_blank" class="Atext">Solved Final Exam from UNI<br></br></a></li>
+                <li><a href="https://dl.ebooksworld.ir/motoman/Refactoring.Improving.the.Design.of.Existing.Code.2nd.edition.www.EBooksWorld.ir.pdf" target="_blank" class="Atext">Refactoring: Improving design of existing code <br></br></a></li>
+                <li><a href="https://www.javier8a.com/itc/bd1/articulo.pdf" target="_blank" class="Atext">Design patterns <br></br></a></li>
             </ul>
         </div>
     </div>
+    </div>
 
-        <div class="container">
-            <a href="/SWE/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
-        </div>
+    <div class="container">
+<!--<<<<<<< Updated upstream-->
+        <a href="/SWE/Discussion" class="Atext" id="subject5"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+<!--=======-->
+<!--        <a href="/SWE/Discussion" id="subject5"> <h3 style="text-align: center;">The Discussion Board</h3></a>-->
+<!--&gt;>>>>>> Stashed changes-->
+    </div>
 
-    <!-- <div class="container" id="subject4">
-        <div class="subject">
-            <h2 style="margin-left:160px;">PDFs</h2>
-            <ul>
-                <li><a href="#">Lecture 8</a></li>
-            </ul>
-        </div>
-    </div> -->
-
-    <!-- Add more containers for additional content -->
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+document.getElementById("header").innerHTML = "هندسة البرمجيات";
+document.getElementById("subject1").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">المقالات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"/SWE/article1\" class=\"Atext\">المقالة 1: المنهجية المائية مقابل المنهجية السريعة</a></li>\n" +
+    "            </ul>\n" +
+    "        </div>";
+document.getElementById("subject2").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">الفيديوهات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"/SWE/Video1\" class=\"Atext\">التبعية include<br></br> </a></li>\n"
+//     "                <li><a href=\"/SWE/Video1\" class=\"Atext\">الأنماط التصميمية الثمانية<br></br> </a></li>\n" +
+//     "                <li><a href=\"/SWE/Video1\" class=\"Atext\">التطوير الموجه بالاختبارات<br></br> </a></li>\n" +
+// "                <li><a href=\"/SWE/Video1\" class=\"Atext\">ما هو برنامج إدارة المشاريع؟<br></br> </a></li>\n" +
+// "                <li><a href=\"/SWE/Video1\" class=\"Atext\">هندسة البرمجيات | تطور البرمجيات <br></br> </a></li>\n" +
+//     "            </ul>\n" +
+//     "        </div>";
+document.getElementById("subject3").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">الاختبارات</h2>\n" +
+    "            <ul style=\"margin-top: 5px;\">\n" +
+    "               <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 1</a> \n" +
+    "                <img id = \"trophy-img\" hidden=\"hidden\" src=\"https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png\"\n" +
+    "                     style=\"max-width: 50px; width: 50px; height: 50px; margin: 0px;\"> \n" +
+    "                    </li>\n" +
+    "                    <br>\n"
+    // "                     <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 2</a> </li>\n" +
+    // "                     <br>\n" +
+    // "                     <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 3</a> </li>\n" +
+    // "                    </ul>\n" +
+    // "        </div>";
+document.getElementById("subject4").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\" >ملفات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"https://engineering.futureuniversity.com/BOOKS%20FOR%20IT/Software-Engineering-9th-Edition-by-Ian-Sommerville.pdf\" target=\"_blank\" class=\"Atext\">Somervile 9<br></br></a></li>\n" +
+    "                <li><a href=\"https://www.cs.uni.edu/~wallingf/teaching/172/materials/exam-final.pdf\" target=\"_blank\" class=\"Atext\">امتحان نهائي محلول من جامعة UNI<br></br></a></li>\n" +
+    "              <li><a href=\"https://dl.ebooksworld.ir/motoman/Refactoring.Improving.the.Design.of.Existing.Code.2nd.edition.www.EBooksWorld.ir.pdf\" target=\"_blank\" class=\"Atext\">Refactoring: Improving design of existing code <br></br></a></li>\n" +
+    "                <li><a href=\"https://www.javier8a.com/itc/bd1/articulo.pdf\" target=\"_blank\" class=\"Atext\">الأنماط التصميمية <br></br></a></li>\n" +
+    "            </ul>\n" +
+    "        </div>";
+document.getElementById("subject5").innerHTML = document.getElementById("subject5").innerHTML = "<a href=\"/SWE/Discussion\" class=\"Atext\" id=\"subject5\"> <h3 style=\"text-align: center;\">لوحة المناقشة</h3></a>";
+
+
+                }
+
+
         // Place the fetch code here
-        fetch("/api/Users/Trophies?course=Algorithms")
+        fetch("/api/Users/Trophies?course=SWE")
             .then(response => response.text())
             .then(trophy => {
                 if (trophy === '1') {
@@ -113,6 +210,7 @@
                 console.error('Error fetching trophy data:', error);
             });
     });
+});
 
 </script>
 </html>
