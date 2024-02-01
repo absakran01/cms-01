@@ -34,7 +34,10 @@
 
         .container {
             background-image: linear-gradient(#1e1b4b,#020617);
+/*<<<<<<< Updated upstream*/
             color: white;
+/*=======*/
+/*>>>>>>> Stashed changes*/
             width: 380px;
             border-radius: 20px;
             border: 2px solid black;
@@ -155,39 +158,112 @@
 
 <body>
 <header>
-    <a href="/" class = "returnfun">Home</a>
-    <h1><big><b>Account Settings</b></big></h1>
+<!--<<<<<<< Updated upstream-->
+    <a href="/" class = "returnfun" id="home">Home</a>
+    <h1><big><b id="header">Account Settings</b></big></h1>
+<!--=======-->
+<!--    <a href="/" style="color: darkcyan;" id="home">Home</a>-->
+<!--    <h1><big><b id="header">Account Settings</b></big></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
 </header>
 
 <nav>
-    <b>Authentication</b>
+    <b id="minorHeader1">Authentication</b>
 </nav>
 
 <div class="container">
-    <h2>Update User</h2>
-    <form th:action="@{/updateUserAndSecurityInfo}" th:object="${userWrapper}" method="post">
+    <h2 id="minorHeader2">Update User</h2>
+    <form >
         <div class="text-group">
             <!-- User fields -->
-            <input type="text" placeholder="Username" th:field="*{user.username}" required>
-            <input type="password" placeholder="Password" th:field="*{user.password}" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
         </div>
 
         <div class="text-group">
             <!-- SecurityInfo fields -->
-            <input type="text" placeholder="New username" th:field="*{NewCred.username}" required>
-            <input type="text" placeholder="New Password" th:field="*{NewCred.password}" required>
+            <input type="text" id="newUsername" placeholder="New Username" required>
+            <input type="text" id="newPassword" placeholder="New Password" required>
         </div>
 
-        <button type="submit">Update</button>
+        <button id="button1" type="button" onclick="updateUser()">Update</button>
         <div class="space"></div> <!-- Empty div for space -->
-        <a th:href="@{/deleteUser}" class="delete-button">Delete Account</a>
+        <a id="button2" onclick="deleteUser()" class="delete-button">Delete Account</a>
     </form>
 </div>
 
-<footer>
-    &copy;2024 TICMS
+
+<footer id="footer">
+    &copy;2023 IMAMU
+
 </footer>
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+                    document.getElementById("header").innerHTML = "إعدادات الحساب";
+                    document.getElementById("minorHeader1").innerHTML = "التوثيق";
+                    document.getElementById("minorHeader2").innerHTML = "تحديث المستخدم";
+                    document.getElementById("input1").placeholder = "اسم المستخدم";
+                    document.getElementById("input2").placeholder = "كلمة المرور";
+                    document.getElementById("input3").placeholder = "اسم المستخدم الجديد";
+                    document.getElementById("input4").placeholder = "كلمة المرور الجديدة";
+                    document.getElementById("button1").innerHTML = "تحديث";
+                    document.getElementById("button2").innerHTML = "حذف الحساب";
+                    document.getElementById("footer").innerHTML = "&copy;2023 جامعة الإمام محمد بن سعود الإسلامية";
+                }
+            });
+    });
+</script>
+
+<script>
+    function updateUser() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var newUsername = document.getElementById("newUsername").value;
+        var newPassword = document.getElementById("newPassword").value;
+
+        var data = {
+            user: {
+                username: username,
+                password: password
+            },
+            newCred: {
+                username: newUsername,
+                password: newPassword
+            }
+        };
+
+        fetch("/api/users/update", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        // then we redirect to /logout
+        location.replace("/logout");
+    }
+
+    function deleteUser() {fetch("deleteUser")
+        //then we redirect to /logout
+        location.replace("/logout");
+    }
+</script>
+
 
 </html>

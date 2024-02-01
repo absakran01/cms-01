@@ -76,15 +76,20 @@
     </head>
     <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/Cpp"> C++ <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/Cpp" id="c++"> C++ <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/Cpp" id="c++"> C++ <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-            <h1><b>C++</b></h1>
+            <h1><b id="header">C++</b></h1>
     </header>
 
     <nav>
         <!-- Navigation content here -->
-        <b>Articles</b>
+        <b id="minorHeader">Articles</b>
     </nav>
 
     <main>
@@ -158,4 +163,19 @@
         </footer>
     </main>
     </body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {            document.getElementById("c++").innerHTML = "لغة سي بلس بلس";
+            document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("header").innerHTML = "لغة سي بلس بلس";
+            document.getElementById("minorHeader").innerHTML = "المقالات";
+        }});
+    });
+</script>
 </html>

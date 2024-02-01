@@ -1,6 +1,7 @@
 package com.example.CMS_01.Service;// DiscussionServiceImpl.java
 import com.example.CMS_01.Entity.DiscussionPosts;
 import com.example.CMS_01.Repository.DiscussionRepository;
+import com.modernmt.text.profanity.ProfanityFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,8 @@ import java.util.List;
 @Service
 public class DiscussionServiceImpl implements DiscussionService {
 
+    private ProfanityFilter filter = new ProfanityFilter();
+
     @Autowired
     private DiscussionRepository discussionRepository;
     @Override
@@ -18,9 +21,13 @@ public class DiscussionServiceImpl implements DiscussionService {
 
         postDTO.setCreatedDate(new Date());
         postDTO.setUsername(post.getUsername());
-        postDTO.setPost(post.getPost());
+        postDTO.setCourse(post.getCourse());
+        if (filter.test("en",post.getPost()) || filter.test("ar",post.getPost()))
+            postDTO.setPost("THIS POST CONTAINS PROFANITY");
+        else
+            postDTO.setPost(post.getPost());
 
-        discussionRepository.save(post);
+        discussionRepository.save(postDTO);
     }
 
 

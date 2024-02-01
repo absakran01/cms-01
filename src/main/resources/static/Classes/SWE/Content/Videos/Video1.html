@@ -110,14 +110,19 @@
 
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/SWE"> Software Engineering <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/SWE" id="SWE"> Software Engineering <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/SWE" id="SWE"> Software Engineering <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-        <h1><b>Software Engineering</b></h1>
+        <h1><b id="header">Software Engineering</b></h1>
     </header>
 
     <nav>
-        <b>Videos</b> 
+        <b id="minorHeader">Videos</b>
     </nav>
 
     <div id = "videoContainer">
@@ -127,11 +132,11 @@
     </div>
     
     <div id = "right-div">
-        <a href=""> Next Video </a>
+        <a href="" id="btn1"> Next Video </a>
     </div>
     
     <div id = "left-div">
-        <a href=""> previous video </a>
+        <a href="" id="btn2"> previous video </a>
     </div>
 
     <div id="playlist-container">
@@ -142,4 +147,23 @@
     </div>
     
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        //enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+        document.getElementById("SWE").innerHTML = "هندسة البرمجيات";
+        document.getElementById("header").innerHTML = "هندسة البرمجيات";
+        document.getElementById("minorHeader").innerHTML = "فيديوهات";
+        document.getElementById("btn1").innerHTML = "الفيديو التالي";
+        document.getElementById("btn2").innerHTML = "الفيديو السابق";
+    }
+    });
+    });
+</script>
+
 </html>

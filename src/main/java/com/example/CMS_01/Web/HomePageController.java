@@ -1,23 +1,29 @@
 package com.example.CMS_01.Web;
 
-import com.example.CMS_01.Entity.User;
-import com.example.CMS_01.POJO.UserWrapper;
 import com.example.CMS_01.Service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+//import org.springframework.ai.chat.ChatClient;
+//import org.springframework.ai.openai.OpenAiChatClient;
+//import org.springframework.ai.openai.api.OpenAiApi;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+
 
 @RequiredArgsConstructor
 @Controller
 @ComponentScan(basePackages = {"com.example.CMS_01", "com.example.CMS_01.Service.UserServiceImpl"})
+@SessionAttributes("preferArabic")
 public class HomePageController {
+
+
+
+    private boolean isArabic = false;
 
     @NonNull
     private UserService userService;
@@ -50,6 +56,9 @@ public class HomePageController {
 //
 //        return "redirect:Algorithms/Discussion";
 //    }
+
+
+
 
 
 
@@ -87,6 +96,9 @@ public class HomePageController {
     public String getAlgorithmsVideo1(){
         return "/Classes/Algorithms/Content/Videos/Video1.html";}
 
+
+
+
 //  Quizess
     @GetMapping("/SWE/Quiz1")
     public String getSWEQuiz1(){
@@ -103,6 +115,9 @@ public class HomePageController {
 //        userService.AlgorithmsQuiz();
         return "/Classes/Algorithms/Content/Quizes/Quiz1.html";}
 
+
+
+
 //    articles
     @GetMapping("/SWE/article1")
     public String getSweArticle(){
@@ -116,18 +131,24 @@ public class HomePageController {
     public String getAlgorithmsArticle(){
         return "/Classes/Algorithms/Content/Article1.html";}
 
+
+
+
 //    PDFs
-    // @GetMapping("/SWE/PDF1")
-    // public String getSwePDF(){
-    //     return "/Classes/SWE/Content/PDFs/PDF1.html";}
+     @GetMapping("/SWE/PDF1")
+     public String getSwePDF(){
+         return "/Classes/SWE/Content/PDFs/PDF1.html";}
 
-    // @GetMapping("/Cpp/PDF1")
-    // public String getCppPDF(){
-    //     return "/Classes/C++/Content/PDFs/PDF1.html";}
+     @GetMapping("/Cpp/PDF1")
+     public String getCppPDF(){
+         return "/Classes/C++/Content/PDFs/PDF1.html";}
 
-    // @GetMapping("/Algorithms/PDF1")
-    // public String getAlgorithmsPDF(){
-    //     return "/Classes/Algorithms/Content/PDFs/PDF1.html";}
+     @GetMapping("/Algorithms/PDF1")
+     public String getAlgorithmsPDF(){
+         return "/Classes/Algorithms/Content/PDFs/PDF1.html";}
+
+
+
 
 //    discussion boards
     @RequestMapping("/SWE/Discussion")
@@ -147,5 +168,39 @@ public class HomePageController {
 
         return "/Classes/Algorithms/Content/THE-Discussionboard/Algorithms-DB.html";
     }
+
+
+
+//    api requests
+    @GetMapping("/api/arabic")
+    @ResponseBody
+    public boolean isArabicEnabled() {
+        // Return the language preference from the session
+        return isArabic;
+    }
+
+
+    //show user details in the console
+    @GetMapping("/api/user")
+    @ResponseBody
+    public String getUserDetails() {
+        // Return the language preference from the session
+        return userService.getCurrentUser().getUsername();
+    }
+
+
+    @GetMapping("/api/toggle-language")
+    public String toggleLanguage() {
+        // Toggle the language preference in the session
+        isArabic = !isArabic;
+        return "redirect:/";
+    }
+
+
+
+
+
+
+
 
 }

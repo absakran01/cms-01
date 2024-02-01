@@ -10,13 +10,19 @@
 
 <body>
 <header>
-    <a class = "returnfun" href="/">Home</a>
-    <a class = "returnfun" href="/Algorithms"> algorithms<a>
-        <h1><big><b>algorithm's Discussion Board</b></big></h1>
+<!--<<<<<<< Updated upstream-->
+    <a class = "returnfun" href="/" id="home">Home</a>
+    <a class = "returnfun" href="/Algorithms" id="header"> algorithms<a>
+        <h1><big><b id="minorHeader1">algorithm's Discussion Board</b></big></h1>
+<!--=======-->
+<!--    <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--    <a style="color: darkcyan;" href="/Algorithms" id="header"> algorithms<a>-->
+<!--        <h1><big><b id="minorHeader1">algorithm's Discussion Board</b></big></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
 </header>
 
 <div class="container">
-    <h1>Discussion Board</h1>
+    <h1 id="minorHeader2">Discussion Board</h1>
         <!-- Your existing input and button code goes here -->
         <div id="discussion">
             <!-- Display saved posts in a table -->
@@ -29,17 +35,40 @@
         <div class="input-container">
             <!-- <input type="text" id="username" placeholder="Your Name"> -->
             <textarea id="message" placeholder="Type your message here, the limit is 400 letters!"></textarea>
-            <button onclick="sendMessage()" >Send</button>
+            <button onclick="sendMessage()" id="button1" >Send</button>
         </div>
     <div id="messages"></div>
     </div>
     <script type="text/javascript" src="/Classes/Algorithms/Content/THE-Discussionboard/script.js"></script>
 
-    <footer>
-        &copy;2024 TICMS
+    <footer id="footer">
+        &copy;2023 IMAMU
     </footer>
 
 </div>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // enable arabic
+    fetch("/api/arabic")
+    .then(response => response.json())
+    .then(data => {
+        if (data === true)
+    {
+        document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+        document.getElementById("header").innerHTML = "الخوارزميات";
+        document.getElementById("minorHeader1").innerHTML = "لوحة المناقشة للخوارزميات";
+        document.getElementById("minorHeader2").innerHTML = "لوحة المناقشة";
+        document.getElementById("button1").innerHTML = "إرسال";
+        document.getElementById("message").placeholder = "اكتب رسالتك هنا، الحد الأقصى هو 400 حرف!";
+        document.getElementById("footer").innerHTML = "&copy;2023 جامعة الإمام محمد بن سعود الإسلامية";
+    }
+    });
+    });
+
+
+</script>
+
 
 </html>

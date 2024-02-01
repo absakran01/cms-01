@@ -61,15 +61,20 @@
 </head>
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/SWE"> Software Engineering <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/SWE" id="SWE"> Software Engineering <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/SWE" id="SWE"> Software Engineering <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-        <h1><b>Software Engineering</b></h1>
+        <h1><b id="header">Software Engineering</b></h1>
     </header>
 
     <nav>
         <!-- Navigation content here -->
-        <b>Articles</b> 
+        <b id="minorHeader">Articles</b>
     </nav>
 
     <main>
@@ -176,4 +181,21 @@
             </h6></a>
     </footer>
 </body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("SWE").innerHTML = "هندسة البرمجيات";
+            document.getElementById("header").innerHTML = "هندسة البرمجيات";
+            document.getElementById("minorHeader").innerHTML = "المقالات";
+        }
+    });
+});
+</script>
+
 </html>

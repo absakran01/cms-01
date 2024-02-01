@@ -122,15 +122,20 @@
 
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/SWE"> Software Engineering <a>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/SWE" id="swe"> Software Engineering <a>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/SWE" id="swe"> Software Engineering <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-        <h1><b>Software Engineering</b></h1>
+        <h1><b id="header">Software Engineering</b></h1>
     </header>
 
     <nav>
         <!-- Navigation content here -->
-        <b>Quizes</b> 
+        <b id="minorHeader">Quizes</b>
     </nav>
 
     <!--
@@ -140,7 +145,7 @@
     <form id="quiz-form">
         <!-- Question 1 -->
         <div class="question">
-            <p> which of the following is method used by agile?</p>
+            <p id="q1"> which of the following is method used by agile?</p>
             <input type="radio" name="q1" value="a" id="q1a"> <label for="q1a">a) User Involvement</label><br>
             <input type="radio" name="q1" value="b" id="q1b"> <label for="q1b">b) Short releases</label><br>
             <input type="radio" name="q1" value="c" id="q1c"> <label for="q1c">c) All of the above</label><br>
@@ -148,7 +153,7 @@
     
         <!-- Question 2 -->
         <div class="question">
-            <p> which of the following is true about prototyping?</p>
+            <p id="q2"> which of the following is true about prototyping?</p>
             <input type="radio" name="q2" value="a" id="q2a"> <label for="q2a">a) Prototyping is outdated</label><br>
             <input type="radio" name="q2" value="b" id="q2b"> <label for="q2b">b) Prototyping is useful for V&V</label><br>
             <input type="radio" name="q2" value="c" id="q2c"> <label for="q2c">c) All of the Above</label><br>
@@ -156,7 +161,7 @@
     
         <!-- Question 3 -->
         <div class="question">
-            <p> .... is good for smaller projects</p>
+            <p id="q3"> .... is good for smaller projects</p>
             <input type="radio" name="q3" value="a" id="q3a"> <label for="q3a">a) Plan-Driven</label><br>
             <input type="radio" name="q3" value="b" id="q3b"> <label for="q3b">b) Agile</label><br>
             <input type="radio" name="q3" value="c" id="q3c"> <label for="q3c">c) Reuse</label><br>
@@ -164,7 +169,7 @@
     
         <!-- Question 4 -->
         <div class="question">
-            <p> Drawback of ... Model is cost of change after the process is underway</p>
+            <p id="q4"> Drawback of ... Model is cost of change after the process is underway</p>
             <input type="radio" name="q4" value="a" id="q4a"> <label for="q4a">a) Reuse</label><br>
             <input type="radio" name="q4" value="b" id="q4b"> <label for="q4b">b) Plan-Driven</label><br>
             <input type="radio" name="q4" value="c" id="q4c"> <label for="q4c">c) Agile</label><br>
@@ -172,7 +177,7 @@
     
         <!-- Question 5 -->
         <div class="question">
-            <p> time it takes for releases in agile</p>
+            <p id="q5"> time it takes for releases in agile</p>
             <input type="radio" name="q5" value="a" id="q5a"> <label for="q5a">a) 2-4 weeks</label><br>
             <input type="radio" name="q5" value="b" id="q5b"> <label for="q5b">b) 5-8 weeks</label><br>
             <input type="radio" name="q5" value="c" id="q5c"> <label for="q5c">c) 9-14 weeks</label><br>
@@ -193,81 +198,114 @@
     
     <script>
 
-        function redirect(){location.reload();}
 
-        document.getElementById("retry-button").hidden=true;
-        // Function to shuffle the questions
-        function shuffleQuestions() {
-        const form = document.getElementById('quiz-form');
-        const questions = Array.from(form.querySelectorAll('.question'));
-        questions.sort(() => Math.random() - 0.5);
-        questions.forEach((question, index) => {
-            form.appendChild(question); // Reorder the questions within the form
-        });
-    }
+            document.addEventListener("DOMContentLoaded", function () {
+                // enable arabic
+                fetch("/api/arabic")
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data) {
+                            document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+                            document.getElementById("swe").innerHTML = "هندسة البرمجيات";
+                            document.getElementById("header").innerHTML = "هندسة البرمجيات";
+                            document.getElementById("minorHeader").innerHTML = "الإختبارات";
+                            document.getElementById("q1").innerHTML = "ما هي الطريقة المستخدمة في البرمجة السريعة؟";
+                            document.getElementById("q2").innerHTML = "ما هو الصحيح عن النمذجة؟";
+                            document.getElementById("q3").innerHTML = ".... جيد للمشاريع الصغيرة";
+                            document.getElementById("q4").innerHTML = "عيب نموذج ... هو تكلفة التغيير بعد بدء العملية";
+                            document.getElementById("q5").innerHTML = "الوقت الذي يستغرقه الإصدارات في البرمجة السريعة";
+                        }
+                    });
 
-
-        // Initial shuffle of questions
-        shuffleQuestions();
-
-
-        // document.getElementById('retry-button').addEventListener('click', function () {
-        //     // Reset the quiz
-        //     document.getElementById('quiz-form').reset();
-        //
-        //     // Enable the form
-        //     document.getElementById('quiz-form').style.pointerEvents = "auto";
-        //
-        //     // Hide the retry button
-        //     document.getElementById('retry-button').style.display = "none";
-        //
-        //     // Clear the results
-        //     document.getElementById('results').innerHTML = '';
-        //
-        //     // Shuffle the questions
-        //     shuffleQuestions();
-        // });
-
-        document.getElementById('submit-button').addEventListener('submit', function (e) {
-            e.preventDefault();
-            let score = 0;
-
-            // Define the correct answers
-            const correctAnswers = {
-                q1: "c",
-                q2: "b",
-                q3: "b",
-                q4: "b",
-                q5: "a"
-            };
-
-            // Check user's answers and calculate the score
-            for (let i = 1; i <= 5; i++) {
-                const questionName = "q" + i;
-                const selectedAnswer = document.querySelector(`input[name=${questionName}]:checked`);
-
-                if (selectedAnswer) {
-                    if (selectedAnswer.value === correctAnswers[questionName]) {
-                        score++;
-                    }
+                function redirect() {
+                    location.reload();
                 }
-            }
-            if(score===5)
-                fetch("/api/Users?course=SWE")
 
-            // Display the score with animation
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = `<p style="color: white;">Your score: ${score} out of 5</p>`;
-            resultsDiv.style.opacity = 1; // Trigger the fade-in animation
+// // <<<<<<< Updated upstream
+//             // Display the score with animation
+//             const resultsDiv = document.getElementById('results');
+//             resultsDiv.innerHTML = `<p style="color: white;">Your score: ${score} out of 5</p>`;
+//             resultsDiv.style.opacity = 1; // Trigger the fade-in animation
+//
+//
+//             // Disable the form
+//             document.getElementById('quiz-form').style.pointerEvents = "none";
+// =======
+                document.getElementById("retry-button").hidden = true;
+
+                // Function to shuffle the questions
+                function shuffleQuestions() {
+                    const form = document.getElementById('quiz-form');
+                    const questions = Array.from(form.querySelectorAll('.question'));
+                    questions.sort(() => Math.random() - 0.5);
+                    questions.forEach((question, index) => {
+                        form.appendChild(question); // Reorder the questions within the form
+                    });
+                }
+// >>>>>>> Stashed changes
 
 
-            // Disable the form
-            document.getElementById('quiz-form').style.pointerEvents = "none";
+                // Initial shuffle of questions
+                shuffleQuestions();
 
-            // Show the retry button
-            document.getElementById('retry-button').hidden=false;
-            document.getElementById('retry-button').textContent='Retry';
-        });
+
+                // document.getElementById('retry-button').addEventListener('click', function () {
+                //     // Reset the quiz
+                //     document.getElementById('quiz-form').reset();
+                //
+                //     // Enable the form
+                //     document.getElementById('quiz-form').style.pointerEvents = "auto";
+                //
+                //     // Hide the retry button
+                //     document.getElementById('retry-button').style.display = "none";
+                //
+                //     // Clear the results
+                //     document.getElementById('results').innerHTML = '';
+                //
+                //     // Shuffle the questions
+                //     shuffleQuestions();
+                // });
+
+                document.getElementById('submit-button').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    let score = 0;
+
+                    // Define the correct answers
+                    const correctAnswers = {
+                        q1: "c",
+                        q2: "b",
+                        q3: "b",
+                        q4: "b",
+                        q5: "a"
+                    };
+
+                    // Check user's answers and calculate the score
+                    for (let i = 1; i <= 5; i++) {
+                        const questionName = "q" + i;
+                        const selectedAnswer = document.querySelector(`input[name=${questionName}]:checked`);
+
+                        if (selectedAnswer) {
+                            if (selectedAnswer.value === correctAnswers[questionName]) {
+                                score++;
+                            }
+                        }
+                    }
+                    if (score === 5)
+                        fetch("/api/Users?course=SWE")
+
+                    // Display the score with animation
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = `<p style="color: white">Your score: ${score} out of 5</p>`;
+                    resultsDiv.style.opacity = 1; // Trigger the fade-in animation
+
+                    // Disable the form
+                    document.getElementById('quiz-form').style.pointerEvents = "none";
+
+                    // Show the retry button
+                    document.getElementById('retry-button').hidden = false;
+                    document.getElementById('retry-button').textContent = 'Retry';
+                });
+            });
     </script>
 
 </body>

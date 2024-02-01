@@ -8,13 +8,19 @@
 </head>
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/SWE"> Software Engineering <a>
-        <h1><big><b>SWE's Discussion Board</b></big></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/SWE" id="swe"> Software Engineering <a>
+        <h1><big><b id="header">SWE's Discussion Board</b></big></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/SWE" id="swe"> Software Engineering <a>-->
+<!--        <h1><big><b id="header">SWE's Discussion Board</b></big></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
     
     <div class="container">
-        <h1>Discussion Board</h1>
+        <h1 id="minorHeader">Discussion Board</h1>
         <div class="input-container">
             <!-- <input type="text" id="username" placeholder="Your Name"> -->
             <textarea id="message" placeholder="Type your message here, the limit is 400 letters!"></textarea>
@@ -22,10 +28,31 @@
         </div>
         <div id="messages"></div></div>
     <script type="text/javascript" src="/Classes/SWE/Content/THE-Discussionboard/script.js"></script>
-    
-<footer>
-    &copy;2024 TICMS
+
+
+<footer id="footer">
+    &copy;2023 IMAMU
+
 </footer>
 
 </body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {         document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("swe").innerHTML = "هندسة البرمجيات";
+            document.getElementById("header").innerHTML = "لوحة المناقشة لهندسة البرمجيات";
+            document.getElementById("minorHeader").innerHTML = "لوحة المناقشة";
+            document.getElementById("message").placeholder = "اكتب رسالتك هنا، الحد الأقصى هو 400 حرف!";
+            document.getElementById("footer").innerHTML = "&copy;2023 جامعة الإمام محمد بن سعود الإسلامية";
+        }
+    });
+    });
+</script>
+
 </html>

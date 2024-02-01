@@ -68,15 +68,20 @@
 </head>
 <body>
 <header>
-    <a class = "returnfun" href="/">Home</a>
-    <a class = "returnfun" href="/Algorithms"> Algorithms <a>
+<!--<<<<<<< Updated upstream-->
+    <a class = "returnfun" href="/" id="home">Home</a>
+    <a class = "returnfun" href="/Algorithms" id="algorithms"> Algorithms <a>
+<!--=======-->
+<!--    <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--    <a style="color: darkcyan;" href="/Algorithms" id="algorithms"> Algorithms <a>-->
+<!--&gt;>>>>>> Stashed changes-->
 
-        <h1><b>Algorithms</b></h1>
+        <h1><b id="header">Algorithms</b></h1>
 </header>
 
 <nav>
     <!-- Navigation content here -->
-    <b>Articles</b>
+    <b id="minorHeader1">Articles</b>
 </nav>
 
 <main>
@@ -239,4 +244,22 @@
     </h6></a>
 </footer>
 </body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (){
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+            document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+            document.getElementById("algorithms").innerHTML = "الخوارزميات";
+            document.getElementById("header").innerHTML = "الخوارزميات";
+            document.getElementById("minorHeader1").innerHTML = "المقالات";
+    }});
+    });
+</script>
+
+
 </html>

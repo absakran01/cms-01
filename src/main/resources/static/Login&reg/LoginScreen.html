@@ -115,49 +115,83 @@
 
 <body>
 <header>
-    <h1><b>The Imamu Content Management System</b></h1>
+    <h1><b id="header">The Imamu Content Management System</b></h1>
 </header>
 <nav>
-    <b>Authentication</b>
+    <b id="minorHeader1">Authentication</b>
 </nav>
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="text-center">Login Form</h2>
+                    <h2 class="text-center" id="minorHeader2">Login Form</h2>
                 </div>
                 <div class="card-body">
 
             <!-- error message here-->
-                    <div id = "errorMessage" class="alert alert-danger" style="
+                    <div hidden="hidden" id = "errorMessage" class="alert alert-danger" style="
             color: #721c24;
             background-color: #f8d7da;"
-                    ></div>
+                    >Invalid username or password</div>
                     <form id="loginForm" method="post" role="form" action="/login" class="form-horizontal">
                         <div class="form-group mb-3">
-                            <label class="control-label"> Username</label>
+                            <label class="control-label" id="label1"> Username</label>
                             <input type="text" id="username" name="username" class="form-control"
                                    placeholder="Username" />
                         </div>
 
                         <div class="form-group mb-3">
-                            <label class="control-label"> Password</label>
+                            <label class="control-label" id="label2"> Password</label>
                             <input type="password" id="password" name="password" class="form-control"
                                    placeholder="password" />
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn-primary">Submit</button>
+<!--<<<<<<< Updated upstream-->
+                            <button type="submit" class="btn-primary" id="submit-btn">Submit</button>
+<!--=======-->
+<!--                            <button type="submit" class="btn btn-primary" style="color: black;" id="submit-btn" href="/">Submit</button>-->
+<!--&gt;>>>>>> Stashed changes-->
                         </div>
                     </form>
                     <div class="form-group mb-3">
-                        <a href="/register" class="register-link">Not a user? Register!</a>
+                        <a href="/register" class="register-link" id="register">Not a user? Register!</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (){
+        //catch error
+        if(window.location.href.includes("error")){
+            //stop script from running
+            document.getElementById("errorMessage").style.display = "block";
+
+        }
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {     document.getElementById("header").innerHTML = "نظام إدارة محتوى جامعة الإمام محمد بن سعود الإسلامية";
+            document.getElementById("minorHeader1").innerHTML = "التوثيق";
+            document.getElementById("minorHeader2").innerHTML = "تسجيل الدخول";
+            document.getElementById("label1").innerHTML = "اسم المستخدم";
+            document.getElementById("label2").innerHTML = "كلمة المرور";
+            document.getElementById("errorMessage").innerHTML = "اسم المستخدم أو كلمة المرور غير صحيحة";
+            document.getElementById("username").placeholder = "اسم المستخدم";
+            document.getElementById("password").placeholder = "كلمة المرور";
+            document.getElementById("submit-btn").innerHTML = "تسجيل الدخول";
+            document.getElementById("register").innerHTML = "لست مستخدما؟ سجل!";
+
+        }
+    })
+    });
+</script>
+
 </body>
 
 <script>
@@ -172,7 +206,8 @@
 
         // Check if the current URL is /login?error
         if (currentUrl.includes('/login?error')) {
-            document.getElementById("errorMessage").textContent='Invalid username or password';
+            // Show the error message
+            document.getElementById('errorMessage').style.display = 'block';
         }
     });
 </script>

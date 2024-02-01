@@ -73,8 +73,13 @@
 </head>
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <h1><b>Software Engineering</b></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <h1><b id="header">Software Engineering</b></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <h1><b id="header">Software Engineering</b></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
 
     <nav>
@@ -132,14 +137,69 @@
     </div>
 
     <div class="container">
-        <a href="/SWE/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+<!--<<<<<<< Updated upstream-->
+        <a href="/SWE/Discussion" class="Atext" id="subject5"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+<!--=======-->
+<!--        <a href="/SWE/Discussion" id="subject5"> <h3 style="text-align: center;">The Discussion Board</h3></a>-->
+<!--&gt;>>>>>> Stashed changes-->
     </div>
 
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+document.getElementById("header").innerHTML = "هندسة البرمجيات";
+document.getElementById("subject1").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">المقالات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"/SWE/article1\" class=\"Atext\">المقالة 1: المنهجية المائية مقابل المنهجية السريعة</a></li>\n" +
+    "            </ul>\n" +
+    "        </div>";
+document.getElementById("subject2").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">الفيديوهات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"/SWE/Video1\" class=\"Atext\">التبعية include<br></br> </a></li>\n" +
+    "                <li><a href=\"/SWE/Video1\" class=\"Atext\">الأنماط التصميمية الثمانية<br></br> </a></li>\n" +
+    "                <li><a href=\"/SWE/Video1\" class=\"Atext\">التطوير الموجه بالاختبارات<br></br> </a></li>\n" +
+"                <li><a href=\"/SWE/Video1\" class=\"Atext\">ما هو برنامج إدارة المشاريع؟<br></br> </a></li>\n" +
+"                <li><a href=\"/SWE/Video1\" class=\"Atext\">هندسة البرمجيات | تطور البرمجيات <br></br> </a></li>\n" +
+    "            </ul>\n" +
+    "        </div>";
+document.getElementById("subject3").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\">الاختبارات</h2>\n" +
+    "            <ul style=\"margin-top: 5px;\">\n" +
+    "               <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 1</a> \n" +
+    "                <img id = \"trophy-img\" hidden=\"hidden\" src=\"https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png\"\n" +
+    "                     style=\"max-width: 50px; width: 50px; height: 50px; margin: 0px;\"> \n" +
+    "                    </li>\n" +
+    "                    <br>\n" +
+    "                     <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 2</a> </li>\n" +
+    "                     <br>\n" +
+    "                     <li> <a href=\"/SWE/Quiz1\" class=\"Atext\">الاختبار 3</a> </li>\n" +
+    "                    </ul>\n" +
+    "        </div>";
+document.getElementById("subject4").innerHTML = "<div class=\"subject\">\n" +
+    "            <h2 style=\"text-align: center;\" >ملفات</h2>\n" +
+    "            <ul>\n" +
+    "                <li><a href=\"https://engineering.futureuniversity.com/BOOKS%20FOR%20IT/Software-Engineering-9th-Edition-by-Ian-Sommerville.pdf\" target=\"_blank\" class=\"Atext\">Somervile 9<br></br></a></li>\n" +
+    "                <li><a href=\"https://www.cs.uni.edu/~wallingf/teaching/172/materials/exam-final.pdf\" target=\"_blank\" class=\"Atext\">امتحان نهائي محلول من جامعة UNI<br></br></a></li>\n" +
+    "              <li><a href=\"https://dl.ebooksworld.ir/motoman/Refactoring.Improving.the.Design.of.Existing.Code.2nd.edition.www.EBooksWorld.ir.pdf\" target=\"_blank\" class=\"Atext\">Refactoring: Improving design of existing code <br></br></a></li>\n" +
+    "                <li><a href=\"https://www.javier8a.com/itc/bd1/articulo.pdf\" target=\"_blank\" class=\"Atext\">الأنماط التصميمية <br></br></a></li>\n" +
+    "            </ul>\n" +
+    "        </div>";
+document.getElementById("subject5").innerHTML = document.getElementById("subject5").innerHTML = "<a href=\"/SWE/Discussion\" class=\"Atext\" id=\"subject5\"> <h3 style=\"text-align: center;\">لوحة المناقشة</h3></a>";
+
+
+                }
+
+
         // Place the fetch code here
-        fetch("/api/Users/Trophies?course=Algorithms")
+        fetch("/api/Users/Trophies?course=SWE")
             .then(response => response.text())
             .then(trophy => {
                 if (trophy === '1') {
@@ -150,6 +210,7 @@
                 console.error('Error fetching trophy data:', error);
             });
     });
+});
 
 </script>
 </html>

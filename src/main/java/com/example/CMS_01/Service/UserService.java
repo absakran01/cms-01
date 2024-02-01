@@ -28,5 +28,8 @@ public interface UserService {
 
     void deleteUserByUsername(String username);
 
-    boolean checkUserAndSecurityInfo(UserWrapper userWrapper);
+
+    User updateUser(User existingUser, User newCredentials) throws Exception;
+
+    void deleteUser(Long userId);
 }

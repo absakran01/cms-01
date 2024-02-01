@@ -44,16 +44,28 @@ public class UserController {
         model.addAttribute("userWrapper",new UserWrapper());
         return "/home/AccountSettings/index.html";}
 
-    @PostMapping("/updateUserAndSecurityInfo")
-    public String updateUserAndSecurityInfo(@ModelAttribute("userWrapper") UserWrapper userWrapper) {
-        // Access user and securityInfo using userWrapper
+    @PostMapping("/api/users/update")
+    public ResponseEntity<String> updateUser(@RequestBody UserWrapper userWrapper) {
         try {
-            userService.checkUserAndSecurityInfo(userWrapper);
-            userService.saveUser(userWrapper.getNewCred());
-            userService.deleteUserByUsername(userWrapper.getUser().getUsername());
-        } catch (Exception e){return "/home/AccountSettings/indexFail.html";}
-        return "redirect:/logout"; // Redirect to user profile or another appropriate page
+            User existingUser = userWrapper.getUser();
+            User newCredentials = userWrapper.getNewCred();
+            userService.updateUser(existingUser, newCredentials);
+            return ResponseEntity.ok("User updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error updating user");
+        }
     }
+
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
+        try {
+            userService.deleteUser(userId);
+            return ResponseEntity.ok("User deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error deleting user");
+        }
+    }
+
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -132,6 +144,21 @@ public class UserController {
         return "";
     }
 
+
+
+    //send user progress to the front end
+    @GetMapping("/api/progress")
+    @ResponseBody
+    public String getProgress() {
+        System.out.println(Integer.valueOf(userService.getCurrentUser().getSWEQuiz()) * 34
+                + Integer.valueOf(userService.getCurrentUser().getCppQuiz()) * 33
+                + Integer.valueOf(userService.getCurrentUser().getAlgorithmsQuiz()) * 33);
+
+
+        return (Integer.valueOf(userService.getCurrentUser().getSWEQuiz()) * 33) +
+                (Integer.valueOf(userService.getCurrentUser().getCppQuiz()) * 33) +
+                (Integer.valueOf(userService.getCurrentUser().getAlgorithmsQuiz()) * 33) + "";
+    }
 
 
 

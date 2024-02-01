@@ -73,7 +73,17 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-    </dependencies>
+
+		<dependency>
+			<groupId>com.modernmt.text</groupId>
+			<artifactId>profanity-filter</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+
 
 	<build>
 		<plugins>

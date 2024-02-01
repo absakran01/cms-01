@@ -8,13 +8,19 @@
 </head>
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <a class = "returnfun" href="/Cpp"> C++ <a>
-        <h1><big><b>C++'s Discussion Board</b></big></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <a class = "returnfun" href="/Cpp" id="c++"> C++ <a>
+        <h1><big><b id="header">C++'s Discussion Board</b></big></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <a style="color: darkcyan;" href="/Cpp" id="c++"> C++ <a>-->
+<!--        <h1><big><b id="header">C++'s Discussion Board</b></big></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
     
     <div class="container">
-        <h1>Discussion Board</h1>
+        <h1 id="minorHeader">Discussion Board</h1>
         <div class="input-container">
             <!-- <input type="text" id="username" placeholder="Your Name"> -->
             <textarea id="message" placeholder="Type your message here, the limit is 400 letters!"></textarea>
@@ -25,9 +31,30 @@
 
     <script type="text/javascript" src="/Classes/C++/Content/THE-Discussionboard/script.js"></script>
 
-<footer>
-    &copy;2024 TICMS
+
+<footer id="footer">
+    &copy;2023 IMAMU
 </footer>
 
 </body>
+
+<script>
+    //enable arabic
+    document.addEventListener("DOMContentLoaded", function (){
+
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {     document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+        document.getElementById("c++").innerHTML = "لغة سي بلس بلس";
+        document.getElementById("header").innerHTML = "لوحة المناقشة للغة سي بلس بلس";
+        document.getElementById("minorHeader").innerHTML = "لوحة المناقشة";
+        document.getElementById("message").placeholder = "اكتب رسالتك هنا، الحد الأقصى هو 400 حرف!";
+        document.getElementById("footer").innerHTML = "&copy;2023 إمامو";
+    }
+    });
+    });
+</script>
+
+
 </html>

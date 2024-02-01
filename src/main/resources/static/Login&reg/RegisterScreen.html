@@ -106,34 +106,58 @@
 <body>
 
 <header>
-    <h1><b>The Imamu Content Management System</b></h1>
+    <h1><b id="header">The Imamu Content Management System</b></h1>
 </header>
 
 <nav>
-    <b>Authentication</b>
+    <b id="minorHeader1">Authentication</b>
 </nav>
 
 <div class="container">
-    <h2>Register</h2>
-    <div id = "errorMessage" class="alert alert-danger" style="
+    <h2 id="minorHeader2">Register</h2>
+    <div hidden="hidden" id = "errorMessage" class="alert alert-danger" style="
             color: #721c24;
             background-color: #f8d7da;"
-    ></div>
+    >Username already taken</div>
     <form id="registrationForm">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" required>
+    <label for="username" id="label1">Username</label>
+    <input type="text" id="username" name="username" placeholder="Username" required>
     <br>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
+    <label for="password" id="label2">Password</label>
+    <input type="password" id="password" name="password" placeholder="password" required>
     <br>
     <!-- Add other form fields as needed -->
-    <button type="button" class="btn-primary" onclick="registerUser()">Register</button>
+<!--<<<<<<< Updated upstream-->
+    <button type="button" class="btn-primary" onclick="registerUser()" id="register-button">Register</button>
+<!--=======-->
+<!--    <button type="button" onclick="registerUser()" style="color: black;" id = "register-button">Register</button>-->
+<!--&gt;>>>>>> Stashed changes-->
     </form>
 
-    <a href="/login" class="login-link">Already a user? Login!</a>
-
+    <a href="/login" class="login-link" id="login-link">Already a user? Login!</a>
     <script>
-        function registerUser() {
+
+
+            document.addEventListener("DOMContentLoaded", function (){
+            // enable arabic
+                fetch("/api/arabic")
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data) {document.getElementById("header").innerHTML = "نظام إدارة محتوى جامعة الإمام محمد بن سعود الإسلامية";
+            document.getElementById("minorHeader1").innerHTML = "التوثيق";
+            document.getElementById("minorHeader2").innerHTML = "تسجيل";
+            document.getElementById("label1").innerHTML = "اسم المستخدم";
+            document.getElementById("label2").innerHTML = "كلمة المرور";
+document.getElementById("register-button").innerHTML = "تسجيل";
+document.getElementById("login-link").innerHTML = "هل أنت مستخدم؟ تسجيل الدخول!";
+document.getElementById("errorMessage").innerHTML = "اسم المستخدم موجود بالفعل";
+document.getElementById("username").placeholder = "اسم المستخدم";
+document.getElementById("password").placeholder = "كلمة المرور";
+}
+});
+
+
+            function registerUser() {
             // Get form data
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -167,16 +191,17 @@
                 .catch(error => {
                     console.error('Error:', error);
                     // Handle errors, e.g., show an error message to the user
-                    displayErrorMessage("Username already taken");
+                    displayErrorMessage();
                 });
         }
 
-        function displayErrorMessage(message) {
+        function displayErrorMessage() {
             const errorMessageElement = document.getElementById('errorMessage');
-            errorMessageElement.textContent = message;
+            errorMessageElement.style.display = 'block';
             errorMessageElement.padding=10;
             errorMessageElement.border=1;
         }
+    });
     </script>
 
 </div>

@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.CMS_01.Entity.User;
-import com.example.CMS_01.POJO.UserWrapper;
 import com.example.CMS_01.Repository.UserRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -134,13 +132,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean checkUserAndSecurityInfo(UserWrapper userWrapper) {
-        if((!userWrapper.getUser().getUsername().equals(getCurrentUser().getUsername())))throw new UsernameNotFoundException("");
-        if(!(bCryptPasswordEncoder.matches(userWrapper.getUser().getPassword(),user.getPassword()))) throw new UsernameNotFoundException("");
-        if(userRepository.findByUsername(userWrapper.getNewCred().getUsername()).isPresent()) throw new UsernameNotFoundException("");
-        return true;
+    public User updateUser(User existingUser, User newCredentials)throws Exception{
+        // Perform your logic to update the user here
+        if (!(existingUser.getUsername().equals(getCurrentUser().getUsername()) ||
+                bCryptPasswordEncoder.matches(existingUser.getPassword(), getCurrentUser().getPassword()))){
+            throw new Exception("Wrong credentials");
+        }
+        User userDTO = new User();
+        userDTO.setUsername(newCredentials.getUsername());
+        userDTO.setPassword(bCryptPasswordEncoder.encode(newCredentials.getPassword()));
+        userDTO.setAlgorithmsQuiz("");
+        userDTO.setCppQuiz("");
+        userDTO.setSWEQuiz("");
 
+        userRepository.deleteById(getCurrentUser().getId());
+
+        return userRepository.save(userDTO);
     }
 
+    public void deleteUser(Long userId) {
+        // Perform your logic to delete the user here
+        userRepository.deleteById(userId);
+    }
 
 }

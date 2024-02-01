@@ -73,8 +73,13 @@
 </head>
 <body>
     <header>
-        <a class = "returnfun" href="/">Home</a>
-        <h1><b>Algorithms</b></h1>
+<!--<<<<<<< Updated upstream-->
+        <a class = "returnfun" href="/" id="home">Home</a>
+        <h1><b id="header">Algorithms</b></h1>
+<!--=======-->
+<!--        <a style="color: darkcyan;" href="/" id="home">Home</a>-->
+<!--        <h1><b id="header">Algorithms</b></h1>-->
+<!--&gt;>>>>>> Stashed changes-->
     </header>
 
     <nav>
@@ -132,14 +137,65 @@
     </div>
 
 
-    <div class="container">
+<!--<<<<<<< Updated upstream-->
+    <div class="container" id="subject5">
         <a href="/Algorithms/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
+<!--=======-->
+<!--    <div class="container" id="subject5">-->
+<!--        <a href="/Algorithms/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>-->
+<!--&gt;>>>>>> Stashed changes-->
     </div>
     
     <!-- Add more containers for additional content -->
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // enable arabic
+        fetch("/api/arabic")
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById("home").innerHTML = "الصفحة الرئيسية";
+                    document.getElementById("header").innerHTML = "الخوارزميات";
+                    document.getElementById("subject1").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">المقالات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/article1" class="Atext">المقالة 1: ما هو الخوارزمية؟ التعريف، الأنواع، الخصائص</a></li>\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+                    document.getElementById("subject2").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">أدلة الفيديو</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/Video1" class="Atext">خوارزمية البحث أولاً بالعرض <br> <br>\n' +
+                        '                <li><a href="/Algorithms/Video1" class="Atext">خوارزمية ديكسترا في 3 دقائق  <br> <br>\n' +
+                        '                <li><a href="/Algorithms/Video1" class="Atext">مفهوم الـ Big-O في 5 دقائق \n' +
+                        '\n' +
+                        '                </a></li>\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+                    document.getElementById("subject3").innerHTML = '<div class="subject">\n' +
+                        '<h2 style="text-align: center;">الاختبارات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="/Algorithms/Quiz1" class="Atext">الاختبار 1 </a> ' +
+                        '                <img id="trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"\n' +
+                        '                     style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">\n' +
+                        '            </ul>\n' +
+                        '        </div>';
+
+                    document.getElementById("subject4").innerHTML = '<div class="subject">\n' +
+                        '            <h2 style="text-align: center;">الملفات</h2>\n' +
+                        '            <ul>\n' +
+                        '                <li><a href="https://dl.ebooksworld.ir/books/Introduction.to.Algorithms.4th.Leiserson.Stein.Rivest.Cormen.MIT.Press.9780262046305.EBooksWorld.ir.pdf" target="_blank" class="Atext">مقدمة في الخوارزميات </a></li> <br>\n' +
+                        '                <li><a href="https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/e882f34a3f46aa9862953616f6de1c57_MIT6_006S20_final_sol.pdf" target="_blank" class="Atext">امتحان من MIT </a></li>\n' +
+                        '            </ul>\n' +
+                        '            </div>\n' +
+                        '        </div>';
+                    document.getElementById("subject5").innerHTML = '<a href="/Algorithms/Discussion" class="Atext"> <h3 style="text-align: center;">لوحة المناقشة</h3></a>';
+
+                }
+
+
+
         // Place the fetch code here
         fetch("/api/Users/Trophies?course=Algorithms")
             .then(response => response.text())
@@ -152,6 +208,7 @@
                 console.error('Error fetching trophy data:', error);
             });
     });
+});
 
 </script>
 </html>
