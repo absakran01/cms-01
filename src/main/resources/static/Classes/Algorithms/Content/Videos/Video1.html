@@ -7,49 +7,137 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
+        }
+
+        #videoContainer{
+            margin-left:500px;
+            margin-top:100px;
+        }
+
+        #right-div {
+            width: 200px; /* Adjust the width as needed */
+            height: 100%; /* Make the div cover the full height of the viewport */
+            position: fixed;
+            /* right: 0; */
+            margin-left: 1280px;
+            font-size: 25px;
+            transition: 0.2s;
+        }
+
+        #left-div {
+            width: 200px; /* Adjust the width as needed */
+            height: 100%; /* Make the div cover the full height of the viewport */
+            position: fixed;
+            /* right: 0; */
+            margin-left: 500px;
+            font-size: 25px;
+            transition: 0.2s;
+        }
+
+        #right-div:hover{
+            font-size: 30px;
+        }
+
+        #left-div:hover{
+            font-size: 30px;
+        }
+
+        /* playlist junk is below*/
+
+        #playlist-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 250px;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-right: 300px;
+            margin-top: 300px; /* Adjusted the margin-top */
+            /* background-color: #1e293b; */
+            background-image: linear-gradient(#0e2357,#250047);
+            z-index: 1; /* Added z-index to bring it in front of other elements */
+            border-radius: 50px;
+        }
+
+        .playlist-item a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .playlist-item a:hover{
+            background-color: #4c24ff; /* Darker background on hover */
+            font-size: larger;
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
         }
         </style>
 </head>
 
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/Algorithms"> Algorithms<a>
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/Algorithms"> Algorithms<a>
 
         <h1><b>Algorithms</b></h1>
     </header>
 
     <nav>
-        <!-- Navigation content here -->
         <b>Videos</b> 
     </nav>
 
-    <div class = "container">
-    <!--the embedded video should be contained with the DIV above^^^-->
+    <div id = "videoContainer" >
     <iframe width="900px" height="506px" src="https://www.youtube.com/embed/oDqjPvD54Ss?si=PtPON6vKUto5acEy" title="YouTube video player" frameborder="0" allow="accelerometer;
     autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
     web-share" allowfullscreen></iframe>
-            </div>
-    <div class = "right-div">
+    </div>
+
+    <div id = "right-div">
         <a href=""> Next Video </a>
     </div>
+    
+    <div id = "left-div">
+        <a href=""> previous video </a>
+    </div>
+
+    <div id="playlist-container">
+        <div class="playlist-item"><a href="">Video 2</a></div>
+        <div class="playlist-item"><a href="">Video 3</a></div>
+    </div>
+
 </body>
 </html>

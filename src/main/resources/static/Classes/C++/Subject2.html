@@ -7,43 +7,74 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
         .container {
-            background-color: white;
+            background-image: linear-gradient(to top left,#0fbbda,rgb(5, 5, 99));
             width: 380px;
             border-radius: 20px;
             overflow: visible;
             border: 2px solid black;
             margin: 20px auto; /* Centers the containers horizontally */
+            color: white;
         }
 
         .subject h2 {
             text-align: justify;
         }
+
+        .bigContainer{
+            display: flex;  
+            height: 500px;
+            border-radius: 200px;
+        }
+
+        .Atext {
+        color: white;
+        transition: color 0.3s; /* Adjust the duration and timing function as needed */
+        text-decoration: none;
+        }
+
+        .Atext:hover {
+        color: rgb(31, 234, 241);; /* Replace with the color you want on hover */
+        font-size: larger;
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
+
     </style>
 </head>
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
+        <a class = "returnfun" href="/">Home</a>
         <h1><b>C++</b></h1>
     </header>
 
@@ -52,50 +83,60 @@
     </nav>
 
     <!-- Your content containers go here -->
+    <div class="bigContainer">
     <div class="container" id="subject1">
         <div class="subject">
-            <h2 style="margin-left:140px;">Articles</h2>
+            <h2 style="text-align: center;">Articles</h2>
             <ul>
-                <li><a href="/Cpp/article1">Article 1: C++ Overview</a></li>
+                <li><a href="/Cpp/article1" class="Atext">Article 1: C++ Overview</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="subject2">
         <div class="subject">
-            <h2 style="margin-left:110px;">Video Guides</h2>
+            <h2 style="text-align: center;">Video Guides</h2>
             <ul>
-                <li><a href="/Cpp/Video1">Video 1:
-                </a></li>
+                <li><a href="/Cpp/Video1" class="Atext">C++ in 100 Seconds<br></br> </a></li>
+                <li><a href="/Cpp/Video1" class="Atext">C vs C++ vs C#: Syntax Difference<br></br> </a></li>
+                <li><a href="/Cpp/Video1" class="Atext">Python vs C++: Speed Difference<br></br> </a></li>
+                <li><a href="/Cpp/Video1" class="Atext">Basics of C++:  <br></br> </a></li>
             </ul>
         </div>
     </div>
 
     <div class="container" id="subject3">
         <div class="subject">
-            <h2 style="margin-left:140px;">Quizzes</h2>
-            <ul>
-                <a href="/Cpp/Quiz1">Quiz 1</a>
+            <h2 style="text-align: center;">Quizzes</h2>
+            <ul><li> 
+                <a href="/Cpp/Quiz1" class="Atext">Quiz 1</a>
                 <img id = "trophy-img" hidden="hidden" src="https://i.pinimg.com/originals/98/b7/83/98b783ecea7d84bceaaf3d56f4f764e9.png"
                      style="max-width: 50px; width: 50px; height: 50px; margin: 0px;">
+                    </li>
+                    <br>
+                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 2</a> </li>
+                     <br>
+                     <li> <a href="/SWE/Quiz1" class="Atext">Quiz 3</a> </li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="container" id="subject4">
+        <div class="subject">
+            <h2 style="text-align: center;" >PDFs</h2>
+            <ul>
+                <li><a href="https://faculty.ksu.edu.sa/sites/default/files/answersheet-first-midtermexam-csc115-firstsemester-1439-1440.pdf" target="_blank" class="Atext">Exam from KSU </a></li> <br>
+                <li><a href="https://faculty.ksu.edu.sa/sites/default/files/ObjectOrientedProgramminginC4thEdition.pdf" target="_blank" class="Atext">OOP in C++ </a></li>
 
             </ul>
         </div>
     </div>
+    </div>
     
     <div class="container">
-        <a href="/Cpp/Discussion"> <h3 style="margin-left:90px;">The Discussion Board</h3></a>
+        <a href="/Cpp/Discussion" class="Atext"> <h3 style="text-align: center;">The Discussion Board</h3></a>
     </div>
-        <!-- <div class="container" id="subject4">
-        <div class="subject">
-            <h2 style="margin-left:140px;">Tutorials</h2>
-            <ul>
-                <li><a href="#">Tutorial 1</a></li>
-            </ul>
-        </div>
-    </div> -->
-    
-    <!-- Add more containers for additional content -->
+
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

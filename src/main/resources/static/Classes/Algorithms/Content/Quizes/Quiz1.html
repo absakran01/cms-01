@@ -8,21 +8,23 @@
     <style>
 
         body {
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
         nav {
-            background-color: grey;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
@@ -35,41 +37,92 @@
         }
 
   
-    #quiz-form {
+        #quiz-form {
         text-align: center;
         max-width: 500px; /* Adjust this value to your liking */
         margin: 0 auto;
+        cursor: pointer;
+        font-size: 20px;
     }
 
-    /* Center-align questions */
-    .question {
-        text-align: left;
-    }
+        .question {
+            text-align: left;
+            color: aliceblue;
+        }
 
-    #submit-button,
+        #submit-button{
+        background-color: #4814d6;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.1s;
+    }
     
-    #retry-button,
-
-    #results {
+    #submit-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
+    }
+    
+    #retry-button{
+        background-color: #4814d6;
+        border: none;
+        color: white;
+        width: 120px;
+        height: 40px;
         text-align: center;
-        margin: 10px 0;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition-duration: 0.1s;
     }
 
-    .button-container {
-        text-align: center;
-        margin: 20px 0; /* Adjust the margin as needed to space the buttons */
+    #retry-button:hover{
+        background-color: #9670fd;
+        font-size: larger;
     }
 
-    .button-container button {
-        margin-top: 10px; /* Adjust the margin as needed to space the buttons */
-    }
+        input[type="radio"] {
+            width: 17px; /* Adjust the width as needed */
+            height: 17px; /* Adjust the height as needed */
+            margin-right: 5px; /* Add some spacing between the radio button and the label */
+        }
+
+        #results {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0; /* Adjust the margin as needed to space the buttons */
+        }
+
+        .button-container button {
+            margin-top: 10px; /* Adjust the margin as needed to space the buttons */
+        }
+
+        .returnfun{
+            color: darkcyan;
+            transition: 0.3s;
+        }
+
+        .returnfun:hover{
+            color: rgb(68, 233, 233);
+            font-size: larger;
+        }
         </style>
 </head>
 
 <body>
     <header>
-        <a style="color: darkcyan;" href="/">Home</a>
-        <a style="color: darkcyan;" href="/Algorithms"> Algorithms <a>
+        <a class = "returnfun" href="/">Home</a>
+        <a class = "returnfun" href="/Algorithms"> Algorithms <a>
 
         <h1><b>Algorithms</b></h1>
     </header>
@@ -187,7 +240,7 @@
 
             // Display the score with animation
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = `<p>Your score: ${score} out of 5</p>`;
+            resultsDiv.innerHTML = `<p style="color: white;">Your score: ${score} out of 5</p>`;
             resultsDiv.style.opacity = 1; // Trigger the fade-in animation
 
             // Disable the form

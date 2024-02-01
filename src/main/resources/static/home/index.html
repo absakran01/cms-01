@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TICMS ~ FrontPage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: linear-gradient(#0e2357,#0f172a);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #333;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #333;
+            background-color: #020617;
             color: #fff;
             padding: 30px;
             text-align: center;
@@ -25,13 +26,13 @@
         }
 
         nav {
-            background-color: #444;
+            background-color: #1e293b;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
 
-        nav ul {
+        nav ul {    
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -42,37 +43,30 @@
             margin-right: 20px;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
         h1 {
             font-size: 24px;
-            margin-inside: 2px;
             margin-bottom: 20px;
         }
 
-        .logo-img {
-            position: absolute;
+        .logo-img{
+            position: fixed;
             top: 10px;
-            left: 4%;
-            width: 100px;
+            /* right: 4%; */
+            margin-left: 650px;
+            margin-top: 30px;
+            width: 150px;
         }
 
         .dropmenuDiv {
             display: inline-block;
             position: relative;
             float: left;
-            margin-top: -35px; /* Adjusted the margin-top value */
+            margin-top: -80px; /* Adjusted the margin-top value */
         }
 
+        /*actuall dropmenu BUTTON*/
         .dropmenuBtn {
-            background-color: #434344;
+            background-color: #22344d;
             color: white;
             padding: 20px;
             font-size: 16px;
@@ -81,10 +75,14 @@
             cursor: pointer;
         }
 
+        .dropmenuBtn:hover{
+            background-color: #395377;
+        }
+        /*dropmenu content*/
         .dropdown {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
+            background-color: #0a3e86;
             min-width: 160px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
@@ -101,7 +99,7 @@
         }
 
         .dropdown a:hover {
-            background-color: #ddd;
+            background-color: #2970d4;
         }
 
         .dropmenuDiv:hover .dropdown {
@@ -114,7 +112,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #1e293b;
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -122,12 +120,144 @@
             bottom: 0;
             width: 100%;
         }
+
+        .bigContainer{
+            display: flex;
+        }
+            
+        .container {
+            max-width: 420px;
+            height: 360px;
+            text-align: center;
+            line-height: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #073a814d;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            align-content: center;
+        }
+
+        #subject1 {
+        position: relative;
+        padding: 20px;
+        overflow: hidden;
+        background-image: url('/home/SWE.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 0% 0%; /* Initial size set to hidden */
+        transition: background-size 0.3s ease;
+        }
+
+        #subject1:hover {
+            background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+        }
+
+        #subject1 a, #subject2 h1 {
+            position: relative;
+            z-index: 1; /* Move the text and hyperlink above the background image */
+        }
+
+        #subject1 h1 {
+            color: #94a3b8;
+        }
+
+        /* this is where the sussining begins*/
+        #subject1:hover h1,
+        #subject2:hover h1,
+        #subject3:hover h1 {
+            color: #0744b6; /* Replace with the color you want on hover */
+        }
+
+        #subject1 h1,
+        #subject2 h1,
+        #subject3 h1 {
+            transition: color 0.3s ease; /* Adjust the duration and timing function as needed */
+        }
+
+        #subject1:hover {
+            background-size: 100% 100%;
+        }
+
+        #subject1:hover h1 {
+            color: #0744b6; /* Replace with the final hover color */
+        }
+
+        #subject2:hover {
+            background-size: 100% 100%;
+        }
+
+        #subject2:hover h1 {
+            color: #0744b6; /* Replace with the final hover color */
+        }
+
+        #subject3:hover {
+            background-size: 100% 100%;
+        }
+
+        #subject3:hover h1 {
+            color: #0744b6; /* Replace with the final hover color */
+        }
+
+        /* and this is where it ends */
+
+        #subject2 {
+        position: relative;
+        padding: 20px;
+        overflow: hidden;
+        background-image: url('/home/cplusedgy.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 0% 0%; /* Initial size set to hidden */
+        transition: background-size 0.3s ease;
+        }
+
+        #subject2:hover {
+            background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+        }
+
+        #subject2 a, #subject2 h1 {
+            position: relative;
+            z-index: 1; /* Move the text and hyperlink above the background image */
+        }
+
+        #subject2 h1 {
+            color: #94a3b8;
+        }
+        
+        #subject3 {
+        position: relative;
+        padding: 20px;
+        overflow: hidden;
+        background-image: url('/home/algor.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 0% 0%; /* Initial size set to hidden */
+        transition: background-size 0.3s ease;
+        }
+
+        #subject3:hover {
+            background-size: 100% 100%; /* Scale to 100% on hover (fully visible) */
+        }
+
+        #subject3 a, #subject3 h1 {
+            position: relative;
+            z-index: 1; /* Move the text and hyperlink above the background image */
+        }
+
+        #subject3 h1 {
+            color: #94a3b8;
+        }
+    
+
     </style>
 </head>
 
 <body>
 <header>
     <h1><big><b>The Imamu Content Management System</b></big></h1>
+    <img src="/home/logoedited.png" class="logo-img">
+
     <div class="dropmenuDiv">
         <button class="dropmenuBtn">
             <i class="fas fa-cog"></i> Settings
@@ -135,8 +265,8 @@
 
         <!-- Dropdown content -->
         <div class="dropdown">
-            <a href="/Settings">Account Settings</a>
-            <a href="/logout">Sign Out</a>
+            <a href="/Settings" style="color: white;">Account Settings</a>
+            <a href="/logout" style="color: white;">Sign Out</a>
         </div>
     </div>
 </header>
@@ -146,22 +276,24 @@
         <!-- Add your navigation items if needed -->
     </ul>
 </nav>
-<div class="container" id="subject1">
-    <a href="/SWE"><h1>Software Engineering</h1></a>
+
+<div class = "bigContainer">
+<div class="container" id="subject1" style="width: 1050px;border-radius: 100px;">
+    <a href="/SWE" style="text-decoration: none;"><h1 style="font-size: 50px;">SWE</h1></a>
 </div>
 
-<div class="container" id="subject2" style="width: 1050px;border-radius: 30px;">
-    <a href="/Cpp"><h1><b>C++</b></h1></a>
+<div class="container" id="subject2" style="width: 1050px;border-radius: 100px;">
+    <a href="/Cpp" style="text-decoration: none;"><h1 style="font-size: 50px;"><b>C++</b></h1></a>
+
 </div>
 
-<div class="container" id="subject3" style="width: 1050px;border-radius: 30px;">
-    <a href="/Algorithms"><h1><b>Algorithms</b></h1></a>
+<div class="container" id="subject3" style="width: 1050px;border-radius: 100px;">
+    <a href="/Algorithms" style="text-decoration: none;"><h1 style="font-size: 50px;"><b>Algorithms</b></h1></a>
 </div>
-
-<!-- Add more containers for other subjects if needed -->
+</div>
 
 <footer>
-    &copy;2023 IMAMU
+    &copy;2024 TICMS
 </footer>
 </body>
 
